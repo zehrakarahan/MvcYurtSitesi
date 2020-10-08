@@ -1,0 +1,19 @@
+﻿body {
+}
+
+@page {
+    size: A4;
+    margin: 0;
+    width:21px;
+    height:29.7px;
+}
+@media print{
+    #deneme2{display:none;}
+    #den{display:none;}
+    
+    #divYazdir{
+        margin-top:50px;
+        width:100%;
+        height:100%;
+    }
+}

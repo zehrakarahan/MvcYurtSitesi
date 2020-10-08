@@ -1,0 +1,15 @@
+C:\Users\Yakup\Desktop\YurtYesilKaya\YurtYesilKaya.Core\bin\Release\YurtYesilKaya.Core.dll.config
+C:\Users\Yakup\Desktop\YurtYesilKaya\YurtYesilKaya.Core\bin\Release\YurtYesilKaya.Core.dll
+C:\Users\Yakup\Desktop\YurtYesilKaya\YurtYesilKaya.Core\bin\Release\YurtYesilKaya.Core.pdb
+C:\Users\Yakup\Desktop\YurtYesilKaya\YurtYesilKaya.Core\bin\Release\EntityFramework.dll
+C:\Users\Yakup\Desktop\YurtYesilKaya\YurtYesilKaya.Core\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Yakup\Desktop\YurtYesilKaya\YurtYesilKaya.Core\bin\Release\FluentValidation.dll
+C:\Users\Yakup\Desktop\YurtYesilKaya\YurtYesilKaya.Core\bin\Release\System.ComponentModel.Annotations.dll
+C:\Users\Yakup\Desktop\YurtYesilKaya\YurtYesilKaya.Core\bin\Release\EntityFramework.xml
+C:\Users\Yakup\Desktop\YurtYesilKaya\YurtYesilKaya.Core\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Yakup\Desktop\YurtYesilKaya\YurtYesilKaya.Core\bin\Release\FluentValidation.xml
+C:\Users\Yakup\Desktop\YurtYesilKaya\YurtYesilKaya.Core\obj\Release\YurtYesilKaya.Core.csprojAssemblyReference.cache
+C:\Users\Yakup\Desktop\YurtYesilKaya\YurtYesilKaya.Core\obj\Release\YurtYesilKaya.Core.csproj.CoreCompileInputs.cache
+C:\Users\Yakup\Desktop\YurtYesilKaya\YurtYesilKaya.Core\obj\Release\YurtYesilKaya.Core.csproj.CopyComplete
+C:\Users\Yakup\Desktop\YurtYesilKaya\YurtYesilKaya.Core\obj\Release\YurtYesilKaya.Core.dll
+C:\Users\Yakup\Desktop\YurtYesilKaya\YurtYesilKaya.Core\obj\Release\YurtYesilKaya.Core.pdb

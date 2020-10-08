@@ -1,0 +1,199 @@
+﻿body {
+    background-color:burlywood;
+}
+
+#kutu{
+height:50px;
+width:50px;
+background-color:red;
+}
+#kutu:hover{
+height:50px;
+width:50px;
+background-color:blue;
+}
+#home-tab{
+    color:black;
+}
+#home-tab:hover{
+  color:yellowgreen;
+}
+
+.yazitutari{
+  position: relative;
+    right: 10px;
+    top:10px;
+}
+table > tr > th.bgYok{
+    width:200px;
+}
+.malidurum{
+    
+    position: absolute;
+    top:10px;
+  
+   
+}
+
+.barinmadurumu{
+    width:200px;
+}
+.yazdirilacak{
+      background:#d21b00;
+    width:160px;
+    position:relative;
+    top:24px;
+    background: linear-gradient(top, #d21b00, #8e0700);
+    padding:15px 15px;
+    text-decoration:none;
+    color:#fff;
+    font:bold 16px Arial, Helvetica, sans-serif;
+    border-radius: 7px;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+    border:5px solid #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+    text-align:center;
+}
+
+.yazdiril{
+     background:#d21b00;
+    width:160px;
+    position:absolute;
+    top: 20px;
+    background: linear-gradient(top, #d21b00, #8e0700);
+    padding:15px 15px;
+    text-decoration:none;
+    color:#fff;
+    font:bold 16px Arial, Helvetica, sans-serif;
+    border-radius: 7px;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+    border:5px solid #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+    text-align:center;
+}
+.yazdirila{
+     background:#d21b00;
+    width:210px;
+    height:70px;
+    position:relative;
+    
+    background: linear-gradient(top, #d21b00, #8e0700);
+    padding:15px 15px;
+    text-decoration:none;
+    color:#fff;
+    font:bold 16px Arial, Helvetica, sans-serif;
+    border-radius: 7px;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+    border:5px solid #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+    text-align:center;
+}
+.yazdir{
+    background:#d21b00;
+    width:945px;
+    margin-left:160px;
+    background: linear-gradient(top, #d21b00, #8e0700);
+    padding:15px 15px;
+    text-decoration:none;
+    color:#fff;
+    font:bold 16px Arial, Helvetica, sans-serif;
+    border-radius: 7px;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+    border:5px solid #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+    text-align:center;
+    
+
+}
+.anasayfa{
+    width:100px;
+    background:#d21b00;
+       margin-left:30px;
+    background: linear-gradient(top, #d21b00, #8e0700);
+    padding:15px 15px;
+    text-decoration:none;
+    color:#fff;
+    font:bold 16px Arial, Helvetica, sans-serif;
+    border-radius: 7px;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+    border:5px solid #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+    text-align:center;
+}
+#resim{
+    position: relative;
+    right: 10px;
+    top:5px;
+}
+#kurumbilgileri{
+     position: relative;
+    right: 10px;
+    top:5px;
+}
+.renkler
+{
+    background-color:burlywood;
+}
+.page{
+   position: relative;
+    top: 50px;
+     background-color:burlywood;
+}
+.yazacak{
+    color:white;
+}
+#mali{
+     position: relative;
+    top: 90px;
+}
+.denemek{
+
+}
+.resim{
+    border:1px solid;
+      position: relative;
+   
+}
+#yeri
+{
+      position: absolute;
+      top:278px;
+      left:1150px;
+        background:#d21b00;
+    width:160px;
+    height:70px;
+    
+    background: linear-gradient(top, #d21b00, #8e0700);
+    color:#fff;
+    font:bold 16px Arial, Helvetica, sans-serif;
+    border-radius: 7px;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+    border:5px solid #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+   
+}
+.yazdiril:hover{
+       background: linear-gradient(top, #8e0700, #d21b00);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+}
+.yazdir:hover{
+    background: linear-gradient(top, #8e0700, #d21b00);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);   
+}
+.yazdirila:hover{
+       background: linear-gradient(top, #8e0700, #d21b00);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+    background-color:#ff0505;
+   
+}
+.yazdir:hover .yazacak{
+    color:darkgreen;
+}
+#konum{
+  position: absolute;
+  top:50px;
+}
+

@@ -1,0 +1,60 @@
+﻿@model PagedList.IPagedList<YurtYesilKaya.Entity.Entity.Ogrenci>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/fontawesome-free/css/all.min.css" rel="stylesheet" />
+<script src="~/Content/fontawesome-free/js/all.min.js"></script>
+<script src="~/Content/fontawesome-free/js/fontawesome.min.js"></script>
+<section class="panel" style="width:1150px;">
+
+    <div class="panel-body" style="margin-left:0px; width:1150px; border:1px solid;">
+        @if (Model == null || Model != null)
+        {
+            <div class="form">
+                <form class="form-validate form-horizontal " id="register_form" method="get" action="">
+
+                    <table class="table table-striped table-advance table-hover" style="border:1px solid;">
+                        <tbody>
+                            <tr>
+                                <th>Öğrenci Resmi</th>
+                                <th>Adı Soyadı</th>
+                                <th>Tckimlik Bilgisi</th>
+                                <th>Bölüm Adı</th>
+                                <th>Cep Telefonu</th>
+                                <th style="width:130px;">Kalmaya<br /> Basladığı Tarih</th>
+                                <th style="width:130px;">Ayrıldığı Tarih</th>
+                                <th>Acil CepTelefonu</th>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+
+
+                                <tr>
+                                    <td><img src="@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" /></td>
+                                    <td>@item.ogrenciadisoyadi</td>
+                                    <td>@item.Ogrencitckimlikno</td>
+                                    <td>@item.bolumadi</td>
+                                    <td>@item.Ceptelefonu</td>
+                                    <td>@item.Yurttakalmayabasladigitarih</td>
+                                    <td>@item.YurtAyrildigiTarih</td>
+                                    <td>@item.AcilDurumCep</td>
+
+
+                                </tr>
+
+
+                            }
+
+
+                        </tbody>
+                    </table>
+                    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("OgrenciListele", new { sayfa }))
+                </form>
+            </div>
+        }
+    </div>
+</section>

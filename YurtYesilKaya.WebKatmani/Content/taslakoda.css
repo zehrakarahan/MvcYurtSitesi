@@ -1,0 +1,38 @@
+﻿body {
+          background-color:#e0e0e0;
+}
+
+@media print{
+    @page
+    {
+         size: 8.5in 11in; 
+         margin:0px;
+    }
+    #deneme2{display:none;}
+    #deneme3{display:none;}
+    #silinecek{display:none;}
+    #dikdortgen2{display:none;}
+    #kucukdikdortgen{
+        background-color:white;
+    }
+    
+ 
+       #dikdortgen{
+      
+     height: 98%;
+      width:100%;
+     position:absolute;
+     left:0px;
+     top:20px;
+   
+    
+   }
+       body {
+    /* A5 dimensions */
+    height: 210mm;
+    width: 148.5mm;
+
+    margin: 0;
+}
+
+}

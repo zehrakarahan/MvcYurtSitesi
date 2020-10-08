@@ -1,0 +1,95 @@
+﻿@model YurtYesilKaya.Entity.Entity.KurumBilgileri
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Kurum Bilgileri Güncelleme
+            </header>
+            <div class="panel-body">
+                <div class="form">
+                    @using (Html.BeginForm("Guncelle", "KurumveTaslaklar", FormMethod.Post))
+                    {
+
+                        @Html.TextBoxFor(m => m.Id, new { @class = "form-control", @type = "number", @id = "alertmesaj" })
+
+                        <div class="form-group ">
+                            <label for="fullname" class="control-label col-lg-2">KurumKodu <span class="required">*</span></label>
+                            <div class="col-lg-10">
+
+                                @Html.TextBoxFor(m => m.KurumCode, new { @class = "form-control", @type = "number" })
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="address" class="control-label col-lg-2" style="margin-top:5px;">KurumAdı <span class="required">*</span></label>
+                            <div class="col-lg-10">
+
+                                @Html.TextBoxFor(m => m.KurumAdi, new { @class = "form-control", @type = "text", @style = "margin-top:5px;" })
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="username" class="control-label col-lg-2" style="margin-top:5px;">Kurum Kurucu Adı <span class="required">*</span></label>
+                            <div class="col-lg-10">
+
+                                @Html.TextBoxFor(m => m.kurucuadi, new { @class = "form-control", @type = "text", @style = "margin-top:5px;" })
+                            </div>
+                        </div>
+                            <div class="form-group ">
+                                <label for="password" class="control-label col-lg-2" style="margin-top:5px;">Kurucu Temsilci Adı <span class="required">*</span></label>
+                                <div class="col-lg-10">
+
+                                    @Html.TextBoxFor(m => m.KurucuTemsilciAdi, new { @class = "form-control", @type = "text", @style = "margin-top:5px;" })
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="confirm_password" class="control-label col-lg-2" style="margin-top:5px;">KurumAdresi <span class="required">*</span></label>
+                                <div class="col-lg-10">
+
+                                    @Html.TextAreaFor(m => m.KurumAdresi, new { @class = "form-control", @type = "text", @style = "margin-top:5px;" })
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="email" class="control-label col-lg-2" style="margin-top:5px;">Kurum Telefon <span class="required">*</span></label>
+                                <div class="col-lg-10">
+
+                                    @Html.TextBoxFor(m => m.KurumTelefon, new { @class = "form-control", @type = "number", @style = "margin-top:5px;" })
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="email" class="control-label col-lg-2" style="margin-top:5px;">Kurum Müdür Adı<span class="required">*</span></label>
+                                <div class="col-lg-10">
+
+                                    @Html.TextBoxFor(m => m.MudurAdi, new { @class = "form-control", @type = "text", @style = "margin-top:5px;" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <button class="btn btn-primary" id="kaydet" type="submit" style="margin-top:10px; width:150px;">Kaydet</button>
+                                    <a href="/KurumveTaslaklar/KurumListele" class="btn btn-danger" style="margin-top:10px; width:150px;">Kapat</a>
+                                </div>
+                            </div>
+                    }
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="~/Content/jquery-3.4.1.min.js"></script>
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#alertmesaj").hide();
+        });
+
+    </script>
+}
+
+
+
+

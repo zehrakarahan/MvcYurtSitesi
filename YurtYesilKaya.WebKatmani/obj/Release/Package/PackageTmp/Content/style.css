@@ -1,0 +1,61 @@
+﻿body {
+
+}
+#yazdirilacakBolge{
+    width:1000px;
+    margin-left:0px;
+    margin-right:0px;
+    margin-top:0px;
+    
+}
+@page {
+    size: A4;
+    margin: 0;
+}
+
+
+@media print{
+    #sol{display:none;}
+    .yazdir{display:none}
+    #ali{display:none}
+    .gizlenecek{display:none}
+    #yazdirilacakBolge{font-size:12px; }
+   
+    #sayfa{
+        width:21cm; font-size:20px; filter: flu(100%);
+
+        margin-bottom:30px;
+        word-wrap:break-word;
+        margin-left:0px;
+        margin-right:0px;
+     
+    }
+    .sag{
+        width:800px;
+        height:auto;
+        margin-top:80px;
+        margin-left:0px;
+        font-size:22px;
+    }
+
+    #deneme{
+    width:1800px;
+
+}
+.geneltablo{
+       margin-left:0px;
+        margin-top:0px;
+     
+}
+.page {
+    width: 21cm;
+    min-height: 29.7cm;
+    padding: 0px;
+    margin: 0px auto;
+  
+    border: 1px #D3D3D3 solid;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+}

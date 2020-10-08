@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="panel" style="width:1325px; height:1725px;">
+    <header class="panel-heading">
+        <div style="margin-left:400px; font-size:25px; text-transform: uppercase;">@ViewBag.yilbigisi30  @ViewBag.ayadi  AYI KAHVALTI TAKVİMİ</div>
+    </header>
+
+    <div class="panel-body" style="height:1570px; width:1325px;">
+
+        <div class="form">
+            <form class="form-validate form-horizontal " id="register_form" method="get" action="">
+
+                <div class="form-group ">
+
+                    @Html.Raw(ViewBag.tarihler_html)
+                    @*                <table border="1" style="margin-left:10px;">
+
+
+
+                                    @for (int i = 0; i < 4; i++)
+                                    {
+
+
+                                        for (int j = 1; j <= 1; j++)
+                                        {
+                                    <tr style="width:180px;">
+                                        <td style="width:180px; border:double;"><label style="width:180px;" align="center">@ViewBag.birinci  </label> </td>
+
+                                        <td style="width:180px; border:double;"><label style="width:180px; " align="center">@ViewBag.ikinci</label> </td>
+                                        <td style="width:180px; border:double;"><label style="width:180px; " align="center">@ViewBag.ucuncu</label></td>
+                                        <td style="width:180px; border:double;"><label style="width:180px; " align="center">@ViewBag.dorduncu</label> </td>
+                                        <td style="width:180px; border:double;"><label style="width:180px; " align="center">@ViewBag.besinci</label> </td>
+                                        <td style="width:180px; border:double;"><label style="width:180px; " align="center">@ViewBag.altinci</label> </td>
+                                        <td style="width:180px; border:double;"><label style="width:180px; " align="center">@ViewBag.yedinci</label></td>
+
+                                    </tr>
+                                        }
+
+
+
+                                <tr style="width:180px;">
+                                    @{
+                                            int deger = 1;
+                                            int sonuc = deger+7;
+
+
+
+                                        }
+
+                                        @for (int l = deger; l <= deger + 6; l++)
+                                        {
+                                            if (ViewBag.aybilgisi31 < 10)
+                                            {
+                                            <td style="width:180px; height:10px; border:double; background-color:white;"><pre align="center" style="font-weight: bold;margin-top:-7px;border: 0;height:20px; font-size:15px; background-color:white">@l/0 @ViewBag.aybilgisi30/@ViewBag.yilbigisi30</pre> </td>
+                                            }
+                                            else
+                                            {
+                                            <td style="width:180px; height:10px; border:double; background-color:white;"><pre align="center" style="font-weight: bold;margin-top:-7px;border: 0;height:20px; font-size:15px; background-color:white">@l/@ViewBag.aybilgisi30/@ViewBag.yilbigisi30</pre> </td>
+                                            }
+                                        }
+                                </tr>
+
+                                        for (int k = 1; k <= 7; k++)
+                                        {
+                                            <tr style="width:180px;">
+                                                <td style="width:180px; border:groove;"><input style="width:180px; height:20px;" id="address" name="address" type="text" /></td>
+                                                <td style="width:180px; border:groove;"><input style="width:180px; height:20px;" id="address" name="address" type="text" /> </td>
+                                                <td style="width:180px; border:groove;"><input style="width:180px; height:20px;" id="address" name="address" type="text" /></td>
+                                                <td style="width:180px; border:groove;"><input style="width:180px; height:20px;" id="address" name="address" type="text" /> </td>
+                                                <td style="width:180px; border:groove;"><input style="width:180px; height:20px;" id="address" name="address" type="text" /></td>
+                                                <td style="width:180px; border:groove;"><input style="width:180px; height:20px;" id="address" name="address" type="text" /> </td>
+                                                <td style="width:180px; border:groove;"><input style="width:180px; height:20px;" id="address" name="address" type="text" /> </td>
+
+                                            </tr>
+                                        }
+                                        for (int k = 1; k < 2; k++)
+                                        {
+
+                                            <tr style="width:550px; margin-top:20px; border:1px;">
+                                                <td colspan="7" style="border-style:dotted"><br /></td>
+                                                <td style="border-style:dotted"><br /></td>
+
+
+
+                                            </tr>
+
+                                            }
+
+                                    }
+
+                        </table>*@
+                </div>
+
+
+
+
+
+                <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                        <button class="btn btn-default" type="button">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+
+    <script>
+      $(document).ready(function () {
+
+      });
+
+    </script>
+}
+

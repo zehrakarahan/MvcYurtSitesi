@@ -1,0 +1,481 @@
+﻿@model IEnumerable<YurtYesilKaya.Entity.Entity.Ogrenci>
+@{
+    Layout = null;
+    YurtYesilKaya.Entity.Entity.Ogrenci ilk = ViewBag.ilkeleman;
+    YurtYesilKaya.Entity.Entity.Ogrenci ikinci = ViewBag.ikinicieleman;
+    YurtYesilKaya.Entity.Entity.Ogrenci uc = ViewBag.ucuncueleman;
+    YurtYesilKaya.Entity.Entity.Ogrenci dort = ViewBag.dortduncueleman;
+    YurtYesilKaya.Entity.Entity.Ogrenci bes = ViewBag.besincieleman;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+        <link href="~/Content/bes.css" rel="stylesheet" />
+
+        <link href="~/Content/taslakoda.css" rel="stylesheet" media="screen,print" />
+
+        <link href="~/Content/Bootstrap-4-4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+
+        <script src="~/Content/Bootstrap-4-4.1.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css">
+
+</head>
+<body>
+    <div id="dikdortgen" style="background-color:#e0e0e0;  width:1110px;height:810px;border:4px double;position:absolute;left:180px;top:20px;border-color:darkgreen;">
+        @foreach (var item in Model)
+        {
+            if (Model.Count() == 1)
+            {
+                if (item.Id == ilk.Id)
+                {
+                    <div id="kucukdikdortgen" class="rounded" style="background-color:white; width:130px;height:360px; margin-left:20px; margin-top:20px;border:3px double;">
+                        <div id="ilkalan">
+                            <img src="~/Uploads/OgrenciFoto/@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" style="width:98px; height:98px;" />
+                        </div>
+                        <div>
+                            <hr style="border:1px solid;" />
+
+                            <hr style="border:1px solid;" />
+                        </div>
+                        <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+                        <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b>@item.ogrenciadisoyadi</b> </label>
+                        <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b>@item.bolumadi</b></label>
+                        <label style="margin-left:4px; position:relative; top:-5px;">Sınıf:&nbsp;&nbsp;<b>@item.Sinifadi</b></label>
+                    </div>
+                    <div id="kuc52" class="rounded" style="background-color:white; width:130px;height:360px; margin-left:225px; margin-top:-360px;border:3px double;">
+                        <div id="ilkalan">
+                            
+                        </div>
+                        <div>
+                            <hr style="border:1px solid;" />
+
+                            <hr style="border:1px solid;" />
+                        </div>
+                        <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+
+                        <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b></b> </label>
+                        <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b> </b></label>
+                        <label style="margin-left:-63px; position:relative; top:25px;">Sınıf:&nbsp;&nbsp;<b></b></label>
+                    </div>
+                    <div id="kucukdikdortgen3" class="rounded" style="background-color:white;  width:130px;height:360px; margin-left:440px; margin-top:-360px; border:3px double;">
+                        <div id="ilkalan">
+
+                        </div>
+                        <div>
+                            <hr style="border:1px solid;" />
+
+                            <hr style="border:1px solid;" />
+                        </div>
+                        <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+
+                        <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b></b> </label>
+                        <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b> </b></label>
+                        <label style="left:448px; position:absolute; top:310px;">Sınıf:&nbsp;&nbsp;<b></b></label>
+                    </div>
+                    <div id="kuc52" class="rounded" style="background-color:white; width:130px;height:360px; margin-left:625px; margin-top:-360px;border:3px double;">
+                        <div id="ilkalan">
+
+                        </div>
+                        <div>
+                            <hr style="border:1px solid;" />
+
+                            <hr style="border:1px solid;" />
+                        </div>
+                        <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+
+                        <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b></b> </label>
+                        <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b> </b></label>
+                        <label style="margin-left:-63px; position:relative; top:25px;">Sınıf:&nbsp;&nbsp;<b></b></label>
+                    </div>
+                    <div id="kucukdikdortgen55" class="rounded" style="background-color:white; width:376px;height:160px;position:absolute;left:720px;top:390px;border:3px double;">
+                        <div id="ilkalan2">
+                            
+                        </div>
+                        <div>
+                            <hr style="border:1px solid; width:20px; height:154px; margin-top:-131px; margin-left:237px;" />
+
+
+                        </div>
+                        <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-300px; margin-left:40px; " /></div><br />
+                        <label style="position:relative; top:-145px; left:3px;">Adı Soyadı:&nbsp;<b></b> </label>
+                        <label style="position:relative; top:-115px; margin-left:-87px;">Bölüm:&nbsp;&nbsp;<b> </b></label>
+                        <label style="position:relative; margin-left:-60px;  top:-88px;">Sınıf:&nbsp;&nbsp;<b></b></label>
+                    </div>
+
+                }
+
+            }
+            if (Model.Count() == 2)
+            {
+                if (item.Id == ilk.Id)
+                {
+                <div id="kucukdikdortgen" class="rounded" style="background-color:white;">
+                    <div id="ilkalan">
+                        <img src="~/Uploads/OgrenciFoto/@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" style="width:98px; height:98px;"  />
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b>@item.ogrenciadisoyadi</b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b>@item.bolumadi</b></label>
+                    <label style="margin-left:4px; position:relative; top:-5px;">Sınıf:&nbsp;&nbsp;<b>@item.Sinifadi</b></label>
+                </div>
+                }
+                if (item.Id == ikinci.Id)
+                {
+                <div id="kucukdikdortgen2" class="rounded" style="background-color:white;">
+                    <div id="ilkalan">
+                    <img src="~/Uploads/OgrenciFoto/@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" style="width:98px; height:98px;" />
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b>@item.ogrenciadisoyadi</b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b>@item.bolumadi </b></label>
+                    <label style="margin-left:4px; position:relative; top:-5px;">Sınıf:&nbsp;&nbsp;<b>@item.Sinifadi</b></label>
+                </div>
+                <div id="kucukdikdortgen3" class="rounded" style="background-color:white;">
+                    <div id="ilkalan">
+                    
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b></b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b> </b></label>
+                    <label style="left:448px; position:absolute; top:310px;">Sınıf:&nbsp;&nbsp;<b></b></label>
+                </div>
+                <div id="kucukdikdortgen4" class="rounded" style="background-color:white;">
+
+                    <div id="ilkalan">
+                     
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b></b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b> </b></label>
+                    <label style="left:5px; position:absolute; top:285px;">Sınıf:&nbsp;&nbsp;<b></b></label>
+                </div>
+                <div id="kucukdikdortgen5" class="rounded" style="background-color:white;">
+                    <div id="ilkalan2">
+                        
+                    </div>
+                    <div>
+                        <hr style="border:1px solid; width:20px; height:154px; margin-top:-131px; margin-left:237px; " />
+
+
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-300px; margin-left:40px;  " /></div><br />
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; display:none; " /></div><br />
+                    <label style="position:relative; top:-170px; left:5px;">Adı Soyadı:&nbsp;<b></b> </label>
+                    <label style="position:relative; top:-145px; margin-left:-83px;">Bölüm:&nbsp;&nbsp;<b> </b></label>
+                    <label style="position:relative; margin-left:-63px;  top:-118px;">Sınıf:&nbsp;&nbsp;<b></b></label>
+                </div>
+                }
+
+
+
+            }
+            if (Model.Count() == 3)
+            {
+                if (item.Id == ilk.Id)
+                {
+                <div id="kucukdikdortgen" class="rounded" style="background-color:white;">
+                    <div id="ilkalan">
+                        <img src="~/Uploads/OgrenciFoto/@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" style="width:98px; height:98px;" />
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b>@item.ogrenciadisoyadi</b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b>@item.bolumadi</b></label>
+                    <label style="margin-left:4px; position:relative; top:-5px;">Sınıf:&nbsp;&nbsp;<b>@item.Sinifadi</b></label>
+                </div>
+                }
+                if (item.Id == ikinci.Id)
+                {
+                <div id="kucukdikdortgen2" class="rounded" style="background-color:white;">
+                    <div id="ilkalan">
+                   <img src="~/Uploads/OgrenciFoto/@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" style="width:98px; height:98px;"/>
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b>@item.ogrenciadisoyadi</b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b>@item.bolumadi </b></label>
+                    <label style="margin-left:4px; position:relative; top:-5px;">Sınıf:&nbsp;&nbsp;<b>@item.Sinifadi</b></label>
+                </div>
+                }
+                if (item.Id == uc.Id)
+                {
+                <div id="kucukdikdortgen3" class="rounded" style="background-color:white;">
+                    <div id="ilkalan">
+                    <img src="~/Uploads/OgrenciFoto/@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" style="width:98px; height:98px;" />
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b>@item.ogrenciadisoyadi</b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b>@item.bolumadi </b></label>
+                    <label style="margin-left:4px; position:relative; top:-5px;">Sınıf:&nbsp;&nbsp;<b>@item.Sinifadi</b></label>
+                </div>
+                <div id="kucukdikdortgen4" class="rounded" style="background-color:white;">
+
+                    <div id="ilkalan">
+                     
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b></b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b> </b></label>
+                    <label style="left:5px; position:absolute; top:295px;">Sınıf:&nbsp;&nbsp;<b></b></label>
+                </div>
+                <div id="kucukdikdortgen5" class="rounded" style="background-color:white;">
+                    <div id="ilkalan2">
+
+                    </div>
+                    <div>
+                        <hr style="border:1px solid; width:20px; height:154px; margin-top:-131px; margin-left:237px;" />
+
+
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-300px; margin-left:40px; " /></div><br />
+                    <label style="position:relative; top:-145px; left:3px;">Adı Soyadı:&nbsp;<b></b> </label>
+                    <label style="position:relative; top:-115px; margin-left:-83px;">Bölüm:&nbsp;&nbsp;<b> </b></label>
+                    <label style="position:relative; margin-left:-63px;  top:-88px;">Sınıf:&nbsp;&nbsp;<b></b></label>
+                </div>
+                }
+
+
+            }
+            if (Model.Count() == 4)
+            {
+                if (item.Id == ilk.Id)
+                {
+                <div id="kucukdikdortgen" class="rounded" style="background-color:white;">
+                    <div id="ilkalan">
+                     <img src="~/Uploads/OgrenciFoto/@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" style="width:98px; height:98px;" />
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b>@item.ogrenciadisoyadi</b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b>@item.bolumadi</b></label>
+                    <label style="margin-left:4px; position:relative; top:-5px;">Sınıf:&nbsp;&nbsp;<b>@item.Sinifadi</b></label>
+                </div>
+                }
+                if (item.Id == ikinci.Id)
+                {
+                <div id="kucukdikdortgen2" class="rounded" style="background-color:white;">
+                    <div id="ilkalan">
+                    <img src="~/Uploads/OgrenciFoto/@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" style="width:98px; height:98px;"/>
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b>@item.ogrenciadisoyadi</b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b>@item.bolumadi </b></label>
+                    <label style="margin-left:4px; position:relative; top:-5px;">Sınıf:&nbsp;&nbsp;<b>@item.Sinifadi</b></label>
+                </div>
+                }
+                if (item.Id == uc.Id)
+                {
+                <div id="kucukdikdortgen3" class="rounded" style="background-color:white;">
+                    <div id="ilkalan">
+                     <img src="~/Uploads/OgrenciFoto/@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" style="width:98px; height:98px;"/>
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b>@item.ogrenciadisoyadi</b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b>@item.bolumadi </b></label>
+                    <label style="margin-left:4px; position:relative; top:-5px;">Sınıf:&nbsp;&nbsp;<b>@item.Sinifadi</b></label>
+                </div>
+                }
+                if (item.Id == dort.Id)
+                {
+                <div id="kucukdikdortgen4" class="rounded" style="background-color:white;">
+
+                    <div id="ilkalan">
+                     <img src="~/Uploads/OgrenciFoto/@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" style="width:98px; height:98px;"/>
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b>@item.ogrenciadisoyadi</b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b>@item.bolumadi</b></label>
+                    <label style="margin-left:4px; position:relative; top:-5px;">Sınıf:&nbsp;&nbsp;<b>@item.Sinifadi</b></label>
+                </div>
+                <div id="kucukd5" class="rounded" style="background-color:white; width:376px; height:160px;">
+                    <div id="if" style="width:100px; height:100px; margin-left:263px; margin-top:30px;border:1px solid;">
+
+                    </div>
+                    <div>
+                        <hr style="border:1px solid; width:20px; height:154px; margin-top:-131px; margin-left:237px;" />
+
+
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-300px; margin-left:40px; " /></div><br />
+                    <label style="position:relative; top:-145px; left:3px;">Adı Soyadı:&nbsp;<b></b> </label>
+                    <label style="position:relative; top:-115px; margin-left:-85px;">Bölüm:&nbsp;&nbsp;<b> </b></label>
+                    <label style="position:relative; margin-left:-59px;  top:-88px;">Sınıf:&nbsp;&nbsp;<b></b></label>
+                </div>
+                }
+
+
+            }
+            if (Model.Count() == 5)
+            {
+                if (item.Id == ilk.Id)
+                {
+                <div id="kucukdikdortgen51" class="rounded" style="background-color:white; width:130px;height:360px; margin-left:20px; margin-top:20px;border:3px double;">
+                    <div id="ilkalan">
+                        <img src="~/Uploads/OgrenciFoto/@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" style="width:98px; height:98px;"/>
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b>@item.ogrenciadisoyadi</b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b>@item.bolumadi</b></label>
+                    <label style="margin-left:4px; position:relative; top:-5px;">Sınıf:&nbsp;&nbsp;<b>@item.Sinifadi</b></label>
+                </div>
+                }
+                if (item.Id == ikinci.Id)
+                {
+                <div id="kucukdikdortgen52" class="rounded" style="background-color:white; width:130px;height:360px; margin-left:225px; margin-top:-360px;border:3px double;">
+                    <div id="ilkalan">
+                        <img src="~/Uploads/OgrenciFoto/@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" style="width:98px; height:98px;"/>
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b>@item.ogrenciadisoyadi</b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b>@item.bolumadi </b></label>
+                    <label style="margin-left:4px; position:relative; top:-5px;">Sınıf:&nbsp;&nbsp;<b>@item.Sinifadi</b></label>
+                </div>
+                }
+                if (item.Id == uc.Id)
+                {
+                <div id="kucukdikdortgen53" class="rounded" style="background-color:white;  width:130px;height:360px; margin-left:440px; margin-top:-360px; border:3px double;">
+                    <div id="ilkalan">
+                        <img src="~/Uploads/OgrenciFoto/@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" style="width:98px; height:98px;" />
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b>@item.ogrenciadisoyadi</b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b>@item.bolumadi </b></label>
+                    <label style="margin-left:4px; position:relative; top:-5px;">Sınıf:&nbsp;&nbsp;<b>@item.Sinifadi</b></label>
+                </div>
+                }
+                if (item.Id == dort.Id)
+                {
+                <div id="kucukdikdortgen54" class="rounded" style="background-color:white; width:130px;height:360px;position:absolute;left:650px;top:20px; border:3px double;">
+
+                    <div id="ilkalan">
+                        <img src="~/Uploads/OgrenciFoto/@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" style="width:98px; height:98px;"/>
+                    </div>
+                    <div>
+                        <hr style="border:1px solid;" />
+
+                        <hr style="border:1px solid;" />
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-10px; margin-left:20px; " /></div><br />
+                    <label style="margin-left:3px; margin-top:-15px;">Adı Soyadı:&nbsp;<br /><b>@item.ogrenciadisoyadi</b> </label>
+                    <label style="margin-left:4px; margin-top:-5px;">Bölüm:&nbsp;&nbsp;<br /><b>@item.bolumadi </b></label>
+                    <label style="margin-left:4px; position:relative; top:-5px;">Sınıf:&nbsp;&nbsp;<b>@item.Sinifadi</b></label>
+                </div>
+                }
+                if (item.Id == bes.Id)
+                {
+                <div id="kucukdikdortgen55" class="rounded" style="background-color:white; width:376px;height:160px;position:absolute;left:720px;top:390px;border:3px double;">
+                    <div id="ilkalan2">
+                        <img src="~/Uploads/OgrenciFoto/@item.OgrenciResmi" class="img-circle img-responsive" alt="@item.ogrenciadisoyadi" style="width:98px; height:98px;"/>
+                    </div>
+                    <div>
+                        <hr style="border:1px solid; width:20px; height:154px; margin-top:-131px; margin-left:237px;" />
+
+
+                    </div>
+                    <div><img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="width:80px; height:55px; margin-top:-300px; margin-left:40px; " /></div><br />
+                    <label style="position:relative; top:-145px; left:3px;">Adı Soyadı:&nbsp;<b>@item.ogrenciadisoyadi</b> </label>
+                    <label style="position:relative; top:-115px; margin-left:-147px;">Bölüm:&nbsp;&nbsp;<b>@item.bolumadi </b></label>
+                    <label style="position:relative; margin-left:-110px;  top:-88px;">Sınıf:&nbsp;&nbsp;<b>@item.Sinifadi</b></label>
+                </div>
+                }
+            }
+
+        }
+        <div id="elbise" class="rounded" style="background-color:white;"><span id="konumu" style="margin-left:25px; position:relative; top:30px; margin-top:20px; vertical-align: middle"><b style="margin-top:30px;">Elbise</b></span></div>
+        <div id="dolabi" class="rounded" style="background-color:white;"><span id="konumu2" style="margin-left:25px; position:relative; top:30px; margin-top:20px; vertical-align: middle"><b>Dolabı</b></span></div>
+        <div id="elbise2" class="rounded" style="background-color:white;"><span style="margin-top:50px; margin-left:25px; position:relative; top:30px; vertical-align: middle"><b>Elbise</b></span></div>
+        <div id="dolabi2" class="rounded" style="background-color:white;"><span style="margin-top:50px; margin-left:25px; position:relative; top:30px; vertical-align: middle"><b>Dolabı</b></span></div>
+        <div id="kucuksekil" style="background-color:white; ">
+            <span style="font-size:30px;margin-left:120px; padding-top:40px; position:absolute; top:10px; ">Banyo <br /><span style="margin-left:35px;">&</span>  <br /><span>Tuvalet</span> </span>
+        </div>
+        <div id="elbisedolabi" class="rounded" style="background-color:white;"><span style="margin-left:25px;  position:relative; top:25px; margin-top:-5px; vertical-align: middle"><b>Elbise <span style="margin-left:22px;">Dolabı</span></b></span></div>
+        <button id="deneme2" style="position: absolute; left: -175px; top: 20px;" class="btn btn-danger btn-xs" onclick="window.print()">Yazdır</button>
+        <a href="/Anasayfa/Index" class="btn btn-danger" id="deneme3" style="width:170px; height:70px; position:absolute; left:-175px; top: 100px; ">Anasayfaya Git</a>
+    </div>
+    
+</body>
+</html>

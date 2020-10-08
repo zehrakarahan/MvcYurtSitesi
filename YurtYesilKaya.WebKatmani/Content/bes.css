@@ -1,0 +1,250 @@
+﻿body {
+}
+body {
+}
+     
+    .yukaridaki {
+        position: absolute;
+        top: 40px;
+        left: 840px;
+        height:90px;
+        font-size:20px;
+    }
+
+    .table-striped {
+        width: 800px;
+    }
+
+    #myTable_filter {
+    }
+     #deneme2 {
+        background: #d21b00;
+        background: linear-gradient(top, #d21b00, #8e0700);
+        padding: 15px 25px;
+        text-decoration: none;
+        color: #fff;
+        width: 170px;
+        font: bold 20px Arial, Helvetica, sans-serif;
+        border-radius: 7px;
+        text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+        border: 5px solid #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+        
+    }
+
+        #deneme2:hover {
+            background: linear-gradient(top, #8e0700, #d21b00);
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+        }
+        #deneme3{
+           background: #d21b00;
+        background: linear-gradient(top, #d21b00, #8e0700);
+        padding: 15px 10px;
+        text-decoration: none;
+        color: #fff;
+        font: bold 20px Arial, Helvetica, sans-serif;
+        border-radius: 7px;
+        text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+        border: 5px solid #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+       
+        
+        }
+          #deneme3:hover {
+            background: linear-gradient(top, #8e0700, #d21b00);
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+        }
+ 
+    #dikdortgen{
+        width:1110px;
+        height:815px;
+        border:4px double;
+        position:absolute;
+        left:180px;
+        top:20px;
+        border-color:darkgreen;
+    }
+    
+    #kucukdikdortgen{
+        width:130px;
+        height:360px;
+        margin-left:20px;
+        margin-top:20px;
+        border:3px double;
+
+    }
+      #kucukdikdortgen51{
+        width:130px;
+        height:360px;
+        margin-left:20px;
+        margin-top:20px;
+        border:3px double;
+
+    }
+        #kucukdikdortgen4{
+        width:130px;
+        height:360px;
+        position:absolute;
+        left:650px;
+        top:20px;
+     
+        border:3px double;
+    }
+        #tuvaletbanyo{
+
+        }
+         #kucukdikdortgen5{
+        width:376px;
+        height:160px;
+        position:absolute;
+        left:720px;
+        top:390px;
+        border:3px double;
+      }
+       #kucukd5{
+        width:376px;
+        height:160px;
+        position:absolute;
+        left:720px;
+        top:390px;
+        border:3px double;
+      } 
+       #kucukdikdortgen2{
+        width:130px;
+        height:360px;
+        margin-left:225px;
+        margin-top:-365px;
+        border:3px double;
+    }
+       #kucuk2{
+        width:130px;
+        height:360px;
+        margin-left:225px;
+        margin-top:-365px;
+        border:3px double;
+       }
+       #kucukdikdortgen3{
+        width:130px;
+        height:360px;
+        margin-left:440px;
+        margin-top:-360px;
+        border:3px double;
+    }
+       #kucuksekil{
+         width:376px;
+        height:220px;
+         border:3px double;
+         position:relative;
+         left:720px;
+         top:-130px;
+       } 
+    #kucukdikdortgen6{
+        width:330px;
+        height:230px;
+        border:3px double;
+         margin-left:620px;
+        margin-top:350px;
+        border:3px double;
+    }
+    #ilkalan{
+        width:100px;
+        height:100px;
+        margin-left:10px;
+        margin-top:10px;
+        border:1px solid;
+    }
+     #ilkalan2{
+        width:100px;
+        height:100px;
+        margin-left:263px;
+        margin-top:30px;
+        border:1px solid;
+    }
+    #elbise{
+        width:100px;
+        height:100px;
+         border:1px solid;
+         margin-left:880px;
+         margin-top:-340px;
+    }
+    #elbise2{
+         width:100px;
+        height:100px;
+         border:1px solid;
+         margin-left:10px;
+         margin-top:350px;
+    }
+     #elbisedolabi{
+         width:100px;
+        height:100px;
+         border:1px solid;
+         margin-left:580px;
+         margin-top:-245px;
+    }
+    #dolabi{
+        width:100px;
+        height:100px;
+        border:1px solid;
+        margin-left:980px;
+        margin-top:-100px;
+
+    }
+   #dolabi2{
+        width:100px;
+        height:100px;
+        border:1px solid;
+        margin-left:10px;
+        margin-top:0px;
+   }
+
+    .table {
+        border: 2px;
+    }
+
+    .active {
+        background: #ef3e3e;
+        color: white;
+    }
+
+        .active:hover {
+            background: #c20000;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+        }
+
+    body {
+        background-color: #e8e8e8;
+    }
+
+    .grid-header-title {
+        color: blue;
+    }
+
+    .k-grid .k-button.btn-warning:after {
+        content: '\f0c5';
+        font-family: FontAwesome;
+        font-size: 5px;
+    }
+   #goster{
+       position:absolute;
+       left:1075px;
+       top:60px;
+   }
+   #anasayfa{
+       position:absolute;
+       left:20px;
+       top:70px;
+   }
+   #yazdisyfa{
+       position:absolute;
+       left:250px;
+       top:200px;
+   }
+   #taslaklaragit{
+       position:absolute;
+       left:1075px;
+       top:20px;
+   }
+

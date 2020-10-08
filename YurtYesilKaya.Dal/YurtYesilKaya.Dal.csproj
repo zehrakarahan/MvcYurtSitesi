@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CAFC38E3-BBF3-447A-83FA-CD2F2F2DF169}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YurtYesilKaya.Dal</RootNamespace>
+    <AssemblyName>YurtYesilKaya.Dal</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IArsivDal.cs" />
+    <Compile Include="Abstract\IDevamsilikBilgisiDal.cs" />
+    <Compile Include="Abstract\IFaturaDal.cs" />
+    <Compile Include="Abstract\IMuracatFormuDal.cs" />
+    <Compile Include="Abstract\ISifreDegisiklikDal.cs" />
+    <Compile Include="Abstract\IYemekTuruDal.cs" />
+    <Compile Include="Abstract\IilcelerDal.cs" />
+    <Compile Include="Abstract\IillerDal.cs" />
+    <Compile Include="Abstract\IKullanicilarDal.cs" />
+    <Compile Include="Abstract\IKurumBilgileriDal.cs" />
+    <Compile Include="Abstract\IOdaBilgileriDal.cs" />
+    <Compile Include="Abstract\IOgrenciDal.cs" />
+    <Compile Include="Abstract\IOgrenciHareketleriDal.cs" />
+    <Compile Include="Abstract\IOzelDurumIndirimDal.cs" />
+    <Compile Include="Abstract\ISenetDal.cs" />
+    <Compile Include="Abstract\ITaksitOdemeTuruDal.cs" />
+    <Compile Include="Abstract\IVeliBilgilerDal.cs" />
+    <Compile Include="Abstract\IYemeklerDal.cs" />
+    <Compile Include="Abstract\IYetkiDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\ArsivDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\MuracatFormuDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\SifreDegisiklikDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\YemekTuru.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\DevamsizlikBilgisiDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\FaturaDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\ilcelerDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\illerDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\KullanicilarDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\KurumBilgileriDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\OdaBilgileriDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\OgrenciDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\OgrenciHareketleriDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\OzelDurumIndirimListesiDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\SenetDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\TaksitOdemeTuruDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\VeliBilgileriDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\YemeklerDal.cs" />
+    <Compile Include="Concrete\EntityFramework\Repository\YetkiDal.cs" />
+    <Compile Include="Mapping\ArsivMap.cs" />
+    <Compile Include="Mapping\YemekTuru.cs" />
+    <Compile Include="Mapping\DevamsizlikBilgisiMap.cs" />
+    <Compile Include="Mapping\FaturaMap.cs" />
+    <Compile Include="Mapping\ilcelerMap.cs" />
+    <Compile Include="Mapping\illerMap.cs" />
+    <Compile Include="Mapping\KullanicilarMap.cs" />
+    <Compile Include="Mapping\KurumBilgisiMap.cs" />
+    <Compile Include="Mapping\OdaBilgileriMap.cs" />
+    <Compile Include="Mapping\OgrenciHareketleriMap.cs" />
+    <Compile Include="Mapping\OgrenciMap.cs" />
+    <Compile Include="Mapping\OzelDurumIndirimMap.cs" />
+    <Compile Include="Mapping\SenetMap.cs" />
+    <Compile Include="Mapping\VeliBilgileriTablosuMap.cs" />
+    <Compile Include="Mapping\YemeklerMap.cs" />
+    <Compile Include="Mapping\YetkiMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YurtYesilKaya.Core\YurtYesilKaya.Core.csproj">
+      <Project>{13AE3D94-AA0B-40A4-9411-51FC0999644B}</Project>
+      <Name>YurtYesilKaya.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YurtYesilKaya.Entity\YurtYesilKaya.Entity.csproj">
+      <Project>{FD080BC3-D37A-46AE-90C6-099747B18663}</Project>
+      <Name>YurtYesilKaya.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Concrete\EntityFramework\Context\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

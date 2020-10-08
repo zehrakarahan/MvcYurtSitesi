@@ -1,0 +1,77 @@
+﻿@model YurtYesilKaya.Entity.Entity.Ogrenci
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<input data-ogrenciid=@Model.Id value="@Model.Id" id="ogrencibilgi" style="display:none;"/>
+<script src="~/Content/jquery-3.4.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@section scripts{
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var ad = @Model.Id;
+            
+
+         swal({
+              title: "Silinsin mi?",
+              text: "Kaydı silmek istediğinizden emin misiniz!",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+              buttons: {
+                  cancel: "Kapat",
+                  catch: {
+                      text: "Evet Silinsin",
+                      value: "catch",
+                  }
+
+              }
+          })
+          .then((willDelete) => {
+               if (willDelete) {
+                   $.ajax({
+                       type: "GET",
+                        url: '@Url.Action("OgrenciSil", "Ogrenci")',
+                       data: { id:@Model.Id },
+                       success: function (data) {
+                           window.location.replace("/Ogrenci/OgrenciListele"); 
+                       },
+                       error: function () {
+                           swal("Your imaginary file is safe!");
+                       }
+
+                   });
+
+               } else {
+
+                   $.ajax({
+                       type:"GET",
+                       url: '@Url.Action("OgrenciListele", "Ogrenci")',
+                       success: function (data) {
+                           swal({
+
+                               title: "Onay!",
+                               text: "İşlemden Vazgeçtim!",
+                               icon: "error",
+                               button: "Kapat!",
+                           })
+                            .then((willDelete) => {
+                                window.location.replace("/Ogrenci/OgrenciListele" );
+                            });
+                         
+                       }
+                   });
+                 
+               }
+           });
+      });
+
+
+
+
+
+    </script>
+    }

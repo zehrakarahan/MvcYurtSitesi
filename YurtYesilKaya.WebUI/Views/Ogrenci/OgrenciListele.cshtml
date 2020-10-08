@@ -1,0 +1,49 @@
+﻿@model YurtYesilKaya.WebUI.Models.OgrenciViewModel
+@{
+    ViewBag.Title = "OgrenciListele";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    var odabilgisi = ViewBag.odabilgileri;
+    var velibilgisi = ViewBag.VeliBilgi;
+    var taksitbilgisi = ViewBag.TaksitBilgi;
+}
+
+<style>
+    .table {
+        border:2px;
+    }
+
+</style>
+<meta name="viewport" content="width=device-width" />
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Content/jquery-3.4.1.min.js"></script>
+
+
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+<script src="~/Scripts/gridmvc.js"></script>
+
+<script src="~/Scripts/gridmvc.lang.ru.js"></script>
+<script src="~/Scripts/gridmvc.min.js"></script>
+
+xx//kutuphane eksik 
+<section class="panel" style="width:1335px;">
+
+   @(Html
+        .Grid(Model.OgrenciListesi).Named("grid")
+        .Css("table table-striped table-bordered")
+        .Build(columns =>
+        {
+
+            //Model.
+            columns.Add(model => model.Ogrenci.ogrenciadisoyadi).Titled("ogrenciadisoyadi").Sortable(true);
+            columns.Add(model => model.OdaBilgisi.OdaNo).Titled("Oda");
+            columns.Add(model => model.Ogrenci.ogrenciadisoyadi).Titled("Adi Soyadi");
+            columns.Add(model => model.Ogrenci.ogrenciadisoyadi).Titled("Adi Soyadi");
+
+        })
+        .Empty("No data found")
+        .Pageable().Sortable().Filterable()
+
+)
+</section>
+

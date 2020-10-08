@@ -1,0 +1,79 @@
+﻿@using GridMvc.Html
+@model YurtYesilKaya.WebKatmani.Models.OgrenciViewModel
+@{
+    ViewBag.Title = "BakiyeListesi";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<style>
+    .table {
+        border: 2px;
+    }
+
+    .active {
+        background: #ef3e3e;
+        color: white;
+    }
+
+        .active:hover {
+            background: #c20000;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+        }
+        body{
+            background-color: #e8e8e8;
+        }
+        .grid-header-title{
+          color:blue;
+        }
+     .k-grid .k-button.btn-warning:after {
+     content: '\f0c5';
+    font-family: FontAwesome;
+     font-size:5px;
+
+}
+</style>
+<meta name="viewport" content="width=device-width" />
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+<script src="~/Content/jquery-3.4.1.min.js"></script>
+
+<script src="~/Scripts/gridmvc.js"></script>
+<script src="~/Scripts/gridmvc.lang.ru.js"></script>
+<script src="~/Scripts/gridmvc.min.js"></script>
+<script src="~/Content/bower_components/bootstrap/dist/js/bootstrap.min.js"></script> 
+<section class="panel" style="width:1335px;">
+    <a href="/Anasayfa/Index" id="deneme" class="btn btn-danger" style="margin-top:-47px; margin-left:1100px;  width:200px;">Anasayfaya Git</a>
+    <div class="collapse navbar-collapse">
+        @using (Html.BeginForm("BakiyeListesi", "Ogrenci", FormMethod.Get, new { @class = "navbar-from navbar-left" }))
+        {
+            <div class="form-group">
+                <input type="text" name="search" class="form-control" placeholder="Ögrenci Adı Soyadı" />
+            </div>
+            <button type="submit" value="search" class="btn btn-success" style="margin-top:-87px; width:100px; margin-left:400px;">Arama Yap</button>
+          
+        }
+
+    </div>
+
+    @(Html
+        .Grid(Model.OgrenciListesi)
+        .Columns(columns =>
+        {
+
+            //Model.
+            columns.Add(model => model.Ogrenci.ogrenciadisoyadi).Titled("Adı Soyadı ").Sortable(true).Sanitized(false).Encoded(false);
+            columns.Add(model => model.Ogrenci.Ogrencitckimlikno).Titled("TcKimlik No");
+            columns.Add(model => model.Ogrenci.Ogrencininkayitedildigimiktar).Titled("Yurda Kayıt Tutarı");
+            columns.Add(model => model.OgrenciHareket.kalanborc).Titled("Kalan Borç").Sanitized(false).Encoded(false);
+            columns.Add(model => model.OgrenciHareket.odenenborc).Titled("ödenen Tutar");
+            columns.Add(model => model.TaksitOdeme.TaksitSayisi).Titled("Kalan Taksit");
+           
+        }).WithPaging(10).Sortable(true)
+
+    )
+
+</section>
+

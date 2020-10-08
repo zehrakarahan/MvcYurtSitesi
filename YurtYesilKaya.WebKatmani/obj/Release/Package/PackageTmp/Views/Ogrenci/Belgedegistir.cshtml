@@ -1,0 +1,172 @@
+﻿@model YurtYesilKaya.Entity.Entity.MuracatFormu
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="~/Content/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <script src="~/Content/fontawesome-free/js/all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/muracatyazdir.css" media="screen, print" />
+    <style>
+        #deneme2 {
+            background: #d21b00;
+            background: linear-gradient(top, #d21b00, #8e0700);
+            padding: 20px 25px;
+            text-decoration: none;
+            color: #fff;
+            width: 210px;
+            font: bold 30px Arial, Helvetica, sans-serif;
+            border-radius: 7px;
+            text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+            border: 5px solid #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+            position: absolute;
+            width: 200px;
+            height: 80px;
+            left: 95%;
+            top: 27%;
+        }
+
+            #deneme2:hover {
+                background: linear-gradient(top, #8e0700, #d21b00);
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+                box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+            }
+
+        #den2 {
+            background: #d21b00;
+            background: linear-gradient(top, #d21b00, #8e0700);
+            padding: 15px 35px;
+            text-decoration: none;
+            color: #fff;
+            font: bold 25px Arial, Helvetica, sans-serif;
+            border-radius: 7px;
+            text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+            border: 5px solid #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+            width: 200px;
+            position: absolute;
+            left: 95%;
+            top: 27%;
+        }
+
+            #den2:hover {
+                background: linear-gradient(top, #8e0700, #d21b00);
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+                box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+            }
+
+        #den {
+            background: #d21b00;
+            background: linear-gradient(top, #d21b00, #8e0700);
+            padding: 15px 35px;
+            text-decoration: none;
+            color: #fff;
+            font: bold 25px Arial, Helvetica, sans-serif;
+            border-radius: 7px;
+            text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+            border: 5px solid #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+            width: 200px;
+            position: absolute;
+            left: 95%;
+            top: 15%;
+        }
+
+            #den:hover {
+                background: linear-gradient(top, #8e0700, #d21b00);
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+                box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+            }
+    </style>
+</head>
+<body>
+    <div class="col-lg-10">
+
+
+        <a id="den" href="/AnaSayfa/Index" class="btn btn-danger btn-xs"><i class="fas fa-backward" style="margin-right:3px;"></i> Anasayfa</a>
+       
+
+        @using (Html.BeginForm("Kaydet", "Ogrenci", FormMethod.Post))
+        {
+            <button id="den2" type="submit" class="btn btn-danger btn-xs"><i class="fas fa-save" style="margin-right:3px;"></i>Belgeyi Kaydet</button>
+            <div style="position:absolute;left:80%; margin-top:60px;" colspan="4">....../...../20....</div><br />
+            <center style="margin-top:60px;">
+
+
+                <h5 class="col-md-10" style="color:black; font-weight:500;"> NİYAZİ MUHİBE YEŞİLKAYA</h5>
+                <h5 class="col-md-10" style="color:black; margin-top:-12px;font-weight:500; ">YÜKSEKÖĞRENİM ERKEK ÖĞRENCİ YURDU</h5>
+                <h5 class="col-md-10" style="color:black; margin-top:-12px;font-weight:500; ">
+                    ......../......... YILI MÜRACAT FORMU<br />
+                    <span style="font-size:15px; font-weight:400;">(Devam Eden Öğrenciler İçin)</span>
+                </h5>
+            </center><br /><br />
+
+            <div style="position:absolute;left:20%" colspan="4"><strong>ÖĞRENCİNİN;</strong></div><br /><br />
+            <div style="position:absolute;left:20%; float:left;">Adı Soyadı:</div>
+            <div style="position:absolute;right:50%; float:left;">T.C. No:</div><br /><br />
+            <div style="position:absolute;left:20%; float:left;">Fakülte/Bölüm:</div>
+            <div style="position:absolute;right:50%; float:left;">Cep No:</div><br /><br />
+            <div style="position:absolute;left:20%; float:left;">Sınıfı:</div>
+            <div style="position:absolute;right:43%; float:left;">1.Öğr.(&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;2.Öğr.(&nbsp;&nbsp;&nbsp;)</div><br /><br />
+            <div style="position:absolute;left:20%; float:left;">Veli Adı Soyadı:</div>
+            <div style="position:absolute;right:50%; float:left;">Veli Cep:</div><br /><br />
+            <hr style="border:1px solid black;position:relative; width:70%; left:35px;" />
+            <div style="position:relative;left:18%; float:left;font-weight:600;">Kayıt Kabul:</div>
+            <div style="position:relative;left:19%; padding-right:32%;">@Html.TextAreaFor(x=>x.birincialan, new { @placeholder = "Bu alanda  ne görmek istiyorsanız onu yazar mısınız....", @class = "form-control", @required = "required" })</div>
+            <div style="position:relative;left:18%; float:left;font-weight:600;">Ayrılma Şartı:</div>
+            <div style="position:relative;left:19%;padding-right:32%;">@Html.TextAreaFor(x => x.ikincialan, new { @placeholder = "Bu alanda " +
+                                                                      "" +
+                                                                      "ne görmek istiyorsanız onu yazar mısınız....", @class = "form-control", @required = "required"  })</div>
+            <div style="position:relative;left:18%; float:left;"><strong>2019-2020 DÖNEMİ YURT ÜCRETLERİ:</strong></div><br /><br />
+            <center>
+                <div style="float:left;position:relative; left:25%;">ODA SEÇENEĞİ</div>
+                <div style="float:left;position:relative; left:45%;">ODA FİYATLARI</div>
+
+            </center><br />
+
+            <hr style="position:relative; border:1px solid black; width:160px; left:-30px; padding-right:40%;" />
+
+            <table class="table table-bordered " style="width:55%;left:20%;position:relative;">
+
+
+                <tr>
+
+                    <td style="font-weight:500; width:25%;  " colspan="1">2 KİŞİLİK</td>
+                    <td style="font-weight:500; width:30%;" colspan="2">@Html.TextBoxFor(x => x.ikikisilik,new {@class="form-control", @required = "required" })</td>
+
+                </tr>
+                <tr>
+
+                    <td style="font-weight:500;">4 KİŞİLİK</td>
+                    <td>@Html.TextBoxFor(x => x.dortkisilik, new { @class = "form-control", @required = "required" })</td>
+
+                </tr>
+                <tr>
+
+                    <td style="font-weight:500;">4 KİŞİLİK(Banyosuz)</td>
+                    <td>@Html.TextBoxFor(x => x.dortkisibanyosuz, new { @class = "form-control", @required = "required" })</td>
+
+                </tr>
+                <tr>
+
+                    <td style="font-weight:500;">5 KİŞİLİK</td>
+                    <td>@Html.TextBoxFor(x => x.beskisilik, new { @class = "form-control", @required = "required" })</td>
+
+                </tr>
+
+            </table>
+            <div style="position:relative;left:19%; width:60%; float:left;">@Html.TextAreaFor(x => x.ucuncualan, new { @class = "form-control", @required = "required", @placeholder="Bu alana en altta ne görmek istiyorsanız onu yazar mısınız...." })</div><br /><br />
+
+
+        }
+        </div>
+   
+</body>
+</html>

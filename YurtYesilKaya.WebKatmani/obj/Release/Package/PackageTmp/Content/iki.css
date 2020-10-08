@@ -1,0 +1,219 @@
+﻿body {
+}
+     
+    .yukaridaki {
+        position: absolute;
+        top: 40px;
+        left: 840px;
+        height:90px;
+        font-size:20px;
+    }
+
+    .table-striped {
+        width: 800px;
+    }
+
+    #myTable_filter {
+    }
+     #deneme2 {
+        background: #d21b00;
+        background: linear-gradient(top, #d21b00, #8e0700);
+        padding: 15px 25px;
+        text-decoration: none;
+        color: #fff;
+        width: 180px;
+        font: bold 20px Arial, Helvetica, sans-serif;
+        border-radius: 7px;
+        text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+        border: 5px solid #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+        position: absolute;
+        left: 22px;
+        top: 20px;
+    }
+
+        #deneme2:hover {
+            background: linear-gradient(top, #8e0700, #d21b00);
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+        }
+        #deneme3{
+           background: #d21b00;
+        background: linear-gradient(top, #d21b00, #8e0700);
+        padding: 15px 15px;
+        text-decoration: none;
+        color: #fff;
+        width: 160px;
+        font: bold 20px Arial, Helvetica, sans-serif;
+        border-radius: 7px;
+        text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+        border: 5px solid #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+         position: absolute; 
+         left:20px;
+         top: 100px;
+        
+        }
+          #deneme3:hover {
+            background: linear-gradient(top, #8e0700, #d21b00);
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+        }
+ 
+    #dikdortgen{
+        width:970px;
+        height:500px;
+        border:4px double;
+        position:absolute;
+        left:250px;
+        top:20px;
+        border-color:darkgreen;
+    }
+        #dikdortgen2{
+        width:970px;
+        height:600px;
+        border:4px double;
+        position:absolute;
+        left:250px;
+        top:580px;
+        border-color:darkgreen;
+    }
+    #kucukdikdortgen{
+        width:130px;
+        height:350px;
+        margin-left:100px;
+        margin-top:20px;
+        border:3px double;
+    }
+        #kucukdikdortgen4{
+        width:410px;
+        height:190px;
+        position:absolute;
+        left:10px;
+        top:20px;
+     
+        border:3px double;
+    }
+         #kucukdikdortgen5{
+        width:410px;
+        height:190px;
+        position:absolute;
+        left:10px;
+        top:390px;
+        border:3px double;
+      }
+         
+       #kucukdikdortgen2{
+        width:130px;
+        height:350px;
+        margin-left:465px;
+        margin-top:-350px;
+        border:3px double;
+    }
+       #kucukdikdortgen3{
+        width:330px;
+        height:230px;
+        margin-left:620px;
+        margin-top:-350px;
+        border:3px double;
+    } 
+    #kucukdikdortgen6{
+        width:330px;
+        height:230px;
+        border:3px double;
+         margin-left:620px;
+        margin-top:350px;
+    }
+    #ilkalan{
+        width:100px;
+        height:100px;
+        margin-left:10px;
+        margin-top:10px;
+        border:1px solid;
+    }
+     #ilkalan2{
+        width:100px;
+        height:130px;
+        margin-left:10px;
+        margin-top:10px;
+        border:1px solid;
+    }
+    #elbise{
+        width:100px;
+        height:100px;
+         border:1px solid;
+         margin-left:750px;
+         margin-top:140px;
+    }
+    #elbise2{
+         width:100px;
+        height:100px;
+         border:1px solid;
+         margin-left:750px;
+         margin-top:-570px;
+    }
+    #dolabi{
+        width:100px;
+        height:100px;
+        border:1px solid;
+        margin-left:852px;
+        margin-top:-100px;
+
+    }
+    #cizgi{
+        border-left: 20px double;
+        border-color:#777777;
+        width: 100%;
+        margin-top:10px;
+        margin-left:140px;
+       
+    }
+
+    .table {
+        border: 2px;
+    }
+
+    .active {
+        background: #ef3e3e;
+        color: white;
+    }
+
+        .active:hover {
+            background: #c20000;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+        }
+
+    body {
+        background-color: #e8e8e8;
+    }
+
+    .grid-header-title {
+        color: blue;
+    }
+
+    .k-grid .k-button.btn-warning:after {
+        content: '\f0c5';
+        font-family: FontAwesome;
+        font-size: 5px;
+    }
+   #goster{
+       position:absolute;
+       left:1075px;
+       top:60px;
+   }
+   #anasayfa{
+       position:absolute;
+       left:20px;
+       top:70px;
+   }
+   #yazdisyfa{
+       position:absolute;
+       left:250px;
+       top:200px;
+   }
+   #taslaklaragit{
+       position:absolute;
+       left:1075px;
+       top:20px;
+   }

@@ -1,0 +1,33 @@
+﻿body {
+  
+    margin:0px 0px 0px 0px;
+}
+@page {
+    size: A4;
+    margin: 0;
+    width:21px;
+    height:29.7px;
+}
+@media print{
+    #save{display:none;}
+    #deneme{display:none}
+    #cancel{display:none}
+    #den{display:none;}
+   .dene{
+      
+        height: 100%;
+    width:100%;
+    
+   margin:0px;
+     overflow: hidden;
+     object-fit: fill;
+   }
+    .dikey {
+     
+   margin:0px;
+   transform: rotate(90deg);
+  
+    border: 1px #D3D3D3 solid;
+}
+  
+}

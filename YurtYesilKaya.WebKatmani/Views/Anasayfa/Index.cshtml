@@ -1,0 +1,195 @@
+﻿@model YurtYesilKaya.WebKatmani.Models.YemekModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var sayisi = ViewBag.sayimiz;
+
+    var veri = ViewBag.yemeklistesi;
+
+    var yemekturu = ViewBag.yemekturu;
+    var yemeksayisituru = ViewBag.yemekturusayisi;
+
+   // ViewBag.sayimiz = yemeklistesisayi;
+   // ViewBag.yemekturu = yemekturu;
+   // ViewBag.yemeklistesi = yemeklistesi;
+    //ViewBag.yemekturusayisi = yemektursayisi;
+}
+<link rel="stylesheet" type="text/css" href="~/Content/veriler.css" />
+<div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-info" role="document" style="width:600px; height:700px; margin-top:40px;">
+        <!--Content-->
+        <div class="modal-content text-center">
+            @if ((sayisi == 0 ))
+            {
+
+                using (Html.BeginForm("Taslak30gunluk", "Yemek", FormMethod.Post))
+                {
+                    <div class="modal-header d-flex justify-content-center">
+                        <p class="heading">Merhabalar Hoşgeldiniz!</p>
+                    </div>
+                    <div class="modal-body" style="height:200px; ">
+
+                        <i class="fas fa-bell fa-3x animated rotateIn mb-3"></i>
+
+                        <p>Öğrenci Yurdu Yemek Listesi Oluştur!</p>
+                        <div style="margin-top:-5px; "><b>Lütfen Ay ve Yıl Bilgisi Giriniz!</b></div>
+
+                        <div>
+                            <p>@Html.TextBoxFor(model => model.Tarih, new { type = "date" })</p>
+                        </div>
+                        <div style="margin-top:12px;" id="sabahra">@Html.RadioButtonFor(model => model.YemekTuru.yemekturu, "Sabah Kahvaltisi", new { @style = "width:22px; height:22px; margin-left:-30px; " })<strong style="width:120px;" id="sabah">Sabah Kahvaltısı</strong></div>
+                        <div id="aksamra">@Html.RadioButtonFor(model => model.YemekTuru.yemekturu, "Aksam Yemegi", new { @style = "width:22px; height:22px; margin-left:-44px;" })<strong style="width:120px;" id="aksam">Akşam Yemeği</strong></div>
+                    </div>
+                    <div class="modal-footer flex-center">
+                        <button id="deneme" type="submit" class="btn btn-info">Listeye Git</button>
+                        <a class="btn btn-danger" data-dismiss="modal">Kapat</a>
+                    </div>
+                }
+            }
+
+            else
+            {
+
+                using (Html.BeginForm("Taslak31gunluk", "Yemek", FormMethod.Post))
+                {
+                    <div class="modal-header d-flex justify-content-center">
+                        <p class="heading">Merhabalar Hoşgeldiniz!</p>
+                    </div>
+                    <div class="modal-body" style="height:200px;">
+
+                        <i class="fas fa-bell fa-3x animated rotateIn mb-3"></i>
+
+                        <p>Öğrenci Yurdu Yemek Listesi Oluştur!</p>
+                        <div style="margin-top:-5px; "><b>Lütfen Ay ve Yıl Bilgisi Giriniz!</b></div>
+
+                        <div>
+                            <p>@Html.TextBoxFor(model => model.Tarih, new { type = "date" })</p>
+                        </div>
+                        <div style="margin-top:12px;" id="sabahra">@Html.RadioButtonFor(model => model.YemekTuru.yemekturu, "Sabah Kahvaltisi", new { @style = "width:22px; height:22px; margin-left:-30px; " })<strong style="width:120px;" id="sabah">Sabah Kahvaltısı</strong></div>
+                        <div id="aksamra">@Html.RadioButtonFor(model => model.YemekTuru.yemekturu, "Aksam Yemegi", new { @style = "width:22px; height:22px; margin-left:-44px;" })<strong style="width:120px;" id="aksam">Akşam Yemeği</strong></div>
+                    </div>
+                    <div class="modal-footer flex-center">
+                        <button id="deneme" type="submit" class="btn btn-info">Listeye Git</button>
+                        <a class="btn btn-danger" data-dismiss="modal">Kapat</a>
+                    </div>
+                }
+            }
+
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<div class="modal fade" id="modalPush2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-info" role="document" style="width:600px; height:700px; margin-top:40px;">
+        <!--Content-->
+        <div class="modal-content text-center">
+          
+
+                @using (Html.BeginForm("Index", "Yoklamalistesi", FormMethod.Post))
+                {
+                    <div class="modal-header d-flex justify-content-center">
+                        <p class="heading">Merhabalar Hoşgeldiniz!</p>
+                    </div>
+                    <div class="modal-body" >
+
+                        <i class="fas fa-bell fa-3x animated rotateIn mb-3"></i>
+
+                        <p>Öğrenci Yurdu Yoklama Listesi Oluştur!</p>
+                        <div style="margin-top:-5px; "><b>Lütfen Ay ve Yıl Bilgisi Giriniz!</b></div>
+
+                        <div>
+                            <p>@Html.TextBoxFor(model => model.Tarih, new { type = "date" })</p>
+                        </div>
+  
+                    </div>
+                    <div class="modal-footer flex-center">
+                        <button id="deneme" type="submit" class="btn btn-info">Listeye Git</button>
+                        <a class="btn btn-danger" data-dismiss="modal">Kapat</a>
+                    </div>
+                }
+            
+            </div>
+        </div>
+    </div>
+            <div class="row">
+
+                <a href="/Ogrenci/Index">
+                    <div class="col-lg-6">
+                        <div class="info-box blue-bg">
+                            <i class="fas fa-address-card"></i>
+                            <div class="count">Öğrenci</div>
+                            <div class="title">6.674</div>
+                        </div>
+                        <!--/.info-box-->
+                    </div>
+                </a>
+                <div id="guncelle"></div>
+                <button type="button" class="info-box brown-bg" style="margin-left:12px; width:370px; height:100px;" data-toggle="modal" data-target="#modalPush">
+
+                    <div class="info-box brown-bg">
+                        <i class="fas fa-utensils"></i>
+                        <div class="count">Yemek</div>
+                        <div class="title">7.538</div>
+                    </div>
+                    <!--/.info-box-->
+                    <!--/.col-->
+
+                </button>
+                <!--/.col-->
+            </div>
+            <div class="row">
+                  <a href="/KurumveTaslaklar/Index">
+                    <div class="col-lg-6">
+                        <div class="info-box dark-heading-bg">
+                            <i class="fas fa-file-contract"></i>
+                            <div class="count">Kurum ve Taslaklar</div>
+                            <div class="title">6.674</div>
+                        </div>
+                        <!--/.info-box-->
+                    </div>
+                </a>
+                <button style="margin-left:12px;  width:370px; height:100px;" class="info-box tab-bg-primary" data-toggle="modal" data-target="#modalPush2">
+                    
+                        <div class="info-box tab-bg-primary">
+                            <i class="fas fa-dna"></i>
+                            <div class="count">Yoklama</div>
+                            <div class="title">6.674</div>
+                      
+                        <!--/.info-box-->
+                    </div>
+                </button>
+                <!--/.col-->
+            </div>
+            <div class="row">
+
+              
+                <a href="/Arsiv/Index">
+                    <div class="col-lg-6">
+                        <div class="info-box tab-bg-info">
+                            <i class="fab fa-empire fa-2x"></i>
+                            
+                            <div class="count">Arşiv Bilgileri</div>
+                            <div class="title">6.674</div>
+                        </div>
+                        <!--/.info-box-->
+                    </div>
+                </a>
+                <a href="/Personel/Personelizinformu">
+                    <button style="margin-left:12px; background-color:darkolivegreen;  width:370px; height:100px;" class="info-box tab-bg-primary">
+
+                        <div class="info-box" style="background-color:darkolivegreen">
+
+
+                            <i class="fas fa-cubes"></i>
+
+                            <div class="count">Personel</div>
+                            <div class="title">6.674</div>
+
+                            <!--/.info-box-->
+                        </div>
+                    </button>
+                </a>
+            </div>
+

@@ -1,0 +1,193 @@
+﻿@model YurtYesilKaya.WebKatmani.Models.YoklamaModelView
+@{
+    Layout = null;
+    var baslangic = ViewBag.ilkgun;
+    var bitis = ViewBag.songun;
+    var strGunKisaltmali = ViewBag.gunkisaca;
+    List<int> odanumarasi = ViewBag.odanumaras;
+    var ogrenciliste = (YurtYesilKaya.WebKatmani.Models.OgrenciViewModel)ViewBag.veri;
+    var ilkgun = Model.tarihler.OrderBy(x => x.Date).FirstOrDefault();
+    var songun = Model.tarihler.OrderBy(x => x.Date).LastOrDefault();
+    int total = 0;
+    int gunluk = 0;
+}
+<link href="~/Content/Bootstrap-4-4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Content/Bootstrap-4-4.1.1/js/bootstrap.min.js"></script>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Yoklama Listesi</title>
+    <link rel="icon" href="~/Content/icondeneme.ico" type="image/x-icon" />
+    <style>
+        #MyId {
+            font-weight: bold;
+        }
+
+        .demet {
+            color: brown;
+            background-color: darkgoldenrod;
+        }
+
+        .boyut {
+            position: absolute;
+            width: 10px;
+        }
+
+        .tiklanacakliste {
+            position: absolute;
+            top: 15px;
+            left: 3px;
+        }
+
+            .tiklanacakliste:hover {
+                background-color: #5c0000;
+            }
+
+        #deneme {
+            background: #d21b00;
+            background: linear-gradient(top, #d21b00, #8e0700);
+            padding: 10px 23px;
+            text-decoration: none;
+            color: #fff;
+            font: bold 20px Arial, Helvetica, sans-serif;
+            border-radius: 7px;
+            text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+            border: 5px solid #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+            position: absolute;
+            left: 10px;
+            top: -3px;
+        }
+
+            #deneme:hover {
+                background: brown;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+                box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+            }
+    </style>
+</head>
+
+<body>
+    @* @using (Html.BeginForm("AylikListeFormuKaydet", "Yemek", FormMethod.Post))
+        {
+
+            @Html.Raw(ViewBag.tarihler_html)
+        }*@
+
+    <button id="deneme" class="btn btn-danger dese" style="margin-top:15px; margin-bottom:20px; width:200px;">Excel Oluştur</button>
+
+    @using (Html.BeginForm("YoklamaKaydet", "Yoklamalistesi", FormMethod.Post))
+    {
+      
+        <table class="table table-bordered" id="sayfa" style="margin-top:90px; border:2px solid ; border-color:black; margin-bottom:-4px; padding:0px; ">
+            <thead>
+                <tr class="yanastir">
+                    <th><label style="width:175px;height:30px;"></label></th>
+
+
+                    @foreach (var item in Model.tarihler)
+                {
+
+                        <th colspan="1" style="border:1px solid;" class="dikey">@item.ToShortDateString()</th>
+
+
+                    }
+                </tr>
+            </thead>
+        </table>
+        <table>
+
+            @for (int i = 0; i < Model.OdaNumaralari.Count; i++)
+            {
+
+                <tr style="border:1px solid; height:30px;">
+                    <td><input class='form-control' style='width:200px; font-weight:bold; color:red; background-color:#e7e7e7;' value="ODA NO:@Model.OdaNumaralari[i]" readonly='readonly'></td>
+                    <td><input class='form-control' style='width:3265px; font-weight:bold; color:red; background-color:#e7e7e7;' type='text' value="ODA NO: @Model.OdaNumaralari[i]" readonly='readonly' /></td>
+                </tr>
+                for (int j = 0; j < Model.YoklamaModel.Count; j++)
+                {
+
+
+                    if (Model.OdaNumaralari[i] == Model.YoklamaModel[j].OdaBilgileri.OdaNo)
+                    {
+                        gunluk = 0;
+
+                        <tr style="height:30px;">
+
+                            <td>
+                                @Html.TextBoxFor(m => m.YoklamaModel[j].Ogrenci.ogrenciadisoyadi, new { @readonly = "readonly", @class = "form-control", @id = "MyId" })
+                                @Html.HiddenFor(m => m.YoklamaModel[j].Ogrenci.Ogrencitckimlikno, new { @readonly = "readonly", @class = "form-control" })
+                                @Html.HiddenFor(m => m.YoklamaModel[j].Ogrenci.Id, new { @readonly = "readonly", @class = "form-control" })
+
+                            </td>
+
+                            @for (DateTime dtmTarih = ilkgun; dtmTarih <= songun; dtmTarih = dtmTarih.AddDays(1))
+                            {
+                                @Html.HiddenFor(m => m.YoklamaModel[j].ayingunleri[@gunluk], new { @readonly = "readonly", @class = "form-control" })
+                                if (ilkgun == dtmTarih)
+                                {
+                                    <td>
+                                        <input class='form-control' name="YoklamaModel[@j].geldigelmedi[@gunluk]" type="text" style='width:97px; margin-right:4px; font-weight:bold; '>
+                                    </td>
+
+                                }
+
+                                if (ilkgun.AddDays(8) > dtmTarih && ilkgun != dtmTarih)
+                                {
+                                    <td><input class='form-control'   type="text" name="YoklamaModel[@j].geldigelmedi[@gunluk]" style="width:97px; position:relative;    left:-3168px; right:0px; font-weight:bold; "></td>
+                                }
+                                if (ilkgun.AddDays(8) <= dtmTarih)
+                                {
+                                    <td><input class='form-control'   type="text" name="YoklamaModel[@j].geldigelmedi[@gunluk]" style="width:106px; position:relative;    left:-3168px; right:0px; font-weight:bold; "></td>
+                                }
+                                gunluk = gunluk + 1;
+
+                            }
+
+
+                        </tr>
+                    }
+
+
+                }
+
+            }
+
+        </table>
+    }
+</body>
+</html>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Content/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    $(".dese").click(function () {
+
+        swal({
+            text: "Belgeniz Masaüstünde YoklamaListesi olarak Oluşacak.",
+            icon: "warning",
+            buttons: true,
+            buttons: {
+
+                    text: "Tamam",
+
+                }
+            })
+       .then((value) => {
+           $.ajax({
+               type: "Get",
+               url: '@Url.Action("ExcelBelgesi", "Yoklamalistesi")',
+
+               success: function (data) {
+                   window.location.replace("/Anasayfa/Index");
+               },
+               error: function () {
+                   swal("Hata oluştu");
+               }
+
+           });
+       });
+    });
+
+
+</script>

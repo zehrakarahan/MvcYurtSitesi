@@ -1,0 +1,133 @@
+﻿@model YurtYesilKaya.WebKatmani.Models.KullaniciModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Giriş Yap</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/Content/Login_v12/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/css/main.css">
+    <link href="~/Content/fontawesome-free/css/all.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <style>
+        #konumlama{
+            position:absolute;
+            left:570px;
+
+        }
+    </style>
+    <script>
+
+        var veri;
+        function test()
+        {
+          
+            
+            var x = document.getElementById("ksifre").value;
+            veri = x;
+           
+           
+          
+        }
+        function test2()
+        {
+          
+            var y = document.getElementById("sifre").value;
+            if (veri != y) {
+                document.getElementById("sonuc").innerHTML = "Şifreler uyuşmuyor";
+            }
+            else {
+                document.getElementById("sonuc").innerHTML = "Şifreler uyuşuyor";
+            }
+        }
+
+
+    </script>
+</head>
+<body style="background-color:darkgreen" >
+
+    <div class="limiter">
+        <div class="container">
+            <div class="wrap p-t-70 p-b-30">
+                
+                @using (Html.BeginForm("SifreSifirlama", "Kullanici", FormMethod.Post))
+                {
+                    <div class="">
+                        <i class="fas fa-users"  style="height:120px; width:270px; margin-bottom:10px; margin-left:400px;" ></i>
+                    </div>
+                    <div class="wrap validate-input m-b-10" data-validate="Username is required" >
+
+                        @Html.HiddenFor(Model => Model.Kullanici.KullaniciAdi, new { @id = "kadi", @class = "input100", @placeholder = "Kullanıcı Adı", @style = "width:325px; margin-left:375px;" })
+                        @Html.HiddenFor(Model => Model.Kullanici.AdiSoyadi, new { @id = "kadi",  @class = "input100", @placeholder = "Kullanıcı Adı", @style = "width:325px; margin-left:375px;" })
+                        @Html.HiddenFor(Model => Model.Kullanici.telefonno, new { @id = "kadi", @class = "input100", @placeholder = "Kullanıcı Adı", @style = "width:325px; margin-left:375px;" })
+                       
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-10" data-validate="Password is required">
+
+                        @Html.PasswordFor(Model => Model.Yenisifre, new { @id = "ksifre", @name = "Şifre Tekrar", @class = "input100", @placeholder = "Yeni Şifre", @style = "width:365px; margin-left:350px;" , @oninput = "test();" })
+
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" style="margin-left:348px;"></i>
+                        </span>
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-10" data-validate="Password is required">
+
+                        @Html.PasswordFor(Model => Model.Şifretekrar, new { @id = "sifre", @name = "Şifre Tekrar", @class = "input100", @placeholder = "Şifre Tekrar", @style = "width:365px; margin-left:350px;" , @oninput = "test2();" })
+
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" style="margin-left:348px;"></i>
+                        </span>
+                    </div>
+                    <div id="sonuc" style="margin-left:360px; color:#fff; "><strong></strong></div>
+                    <div class="container-login100-form-btn p-t-10">
+                        <button type="submit" id="anasayfa" class="login100-form-btn" style="width:400px; margin-left:-40px;">
+                            Şifre Değiştir 
+                        </button>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v12/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v12/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Content/Login_v12/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v12/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v12/js/main.js"></script>
+    <script src="~/Content/fontawesome-free/js/all.js"></script>
+    <script src="~/Content/jquery-3.4.1.min.js"></script>
+</body>
+</html>
+@section scripts{
+
+}
+
+
+

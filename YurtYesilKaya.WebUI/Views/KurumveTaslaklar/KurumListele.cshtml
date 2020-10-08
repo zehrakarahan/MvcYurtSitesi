@@ -1,0 +1,202 @@
+﻿
+@{
+    ViewBag.Title = "KurumListele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .gorunmez {
+        display: none;
+    }
+</style>
+@model YurtYesilKaya.WebUI.Models.SayiDegeri
+
+<div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-info" role="document" style="width:600px; height:700px; margin-top:40px;">
+        <!--Content-->
+        @using (Html.BeginForm("Sil", "KurumveTaslaklar", FormMethod.Post))
+        {
+            <div class="modal-content text-center" id="ModalView">
+                <div class="modal-header d-flex justify-content-center">
+                    <p class="heading">Merhabalar Hoşgeldiniz!</p>
+                </div>
+
+                <!--Body-->
+
+                <div class="modal-body">
+                    <i class="fas fa-bell fa-3x animated rotateIn mb-3"></i>
+
+                    <div>
+                        @Html.TextBoxFor(m => m.sayi, new { @class = "form-control", @type = "number", @id = "alertmesaj" })
+                    </div>
+                    <div style="margin-top:-5px; "><strong>Bu Kaydı silmek istediğinizden Emin misiniz?</strong></div>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer flex-center">
+                    <button id="deneme" type="submit" class="btn btn-info kurumsil">Sil</button>
+                    <a class="btn btn-danger" data-dismiss="modal">Kapat</a>
+                </div>
+            </div>
+        }
+        <!--/.Content-->
+    </div>
+</div>
+<div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-info" role="document" style="width:600px; height:700px; margin-top:40px;">
+        <!--Content-->
+        @using (Html.BeginForm("Sil", "KurumveTaslaklar", FormMethod.Post))
+        {
+            <div class="modal-content text-center" id="ModalView">
+                <div class="modal-header d-flex justify-content-center">
+                    <p class="heading">Merhabalar Hoşgeldiniz!</p>
+                </div>
+
+                <!--Body-->
+
+                <div class="modal-body">
+                    <i class="fas fa-bell fa-3x animated rotateIn mb-3"></i>
+
+                    <div>
+                        @Html.TextBoxFor(m => m.sayi, new { @class = "form-control", @type = "number", @id = "alertmesaj" })
+                    </div>
+                    <div style="margin-top:-5px; "><strong>Bu Kaydı silmek istediğinizden Emin misiniz?</strong></div>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer flex-center">
+                    <button id="deneme" type="submit" class="btn btn-info kurumsil">Sil</button>
+                    <a class="btn btn-danger" data-dismiss="modal">Kapat</a>
+                </div>
+            </div>
+        }
+        <!--/.Content-->
+    </div>
+</div>
+
+<!--Modal: modalPush-->
+
+
+
+
+
+<section class="panel" style="width:1165px; ">
+
+    <div class="panel-body" style="width:1165px;">
+
+        <div class="form">
+            <form class="form-validate form-horizontal " id="register_form" method="get" action="">
+
+                <table class="table table-striped table-advance table-hover">
+                    <tbody>
+                        <tr>
+                            <th> Kurum Kodu</th>
+                            <th>Kurum Adı</th>
+                            <th> Kurucu Adı</th>
+                            <th> Kurucu Temsilci Adı</th>
+                            <th> Müdür Adı</th>
+                            <th> Kurum Adresi</th>
+                            <th> Telefon Numarası</th>
+                            <th>Düzenle</th>
+                            <th>Sil</th>
+                        </tr>
+                        @foreach (var item in ViewBag.kurumlistesi)
+                        {
+                            <tr>
+                                <td>@item.KurumCode</td>
+                                <td>@item.KurumAdi</td>
+                                <td>@item.kurucuadi</td>
+                                <td>@item.KurucuTemsilciAdi</td>
+                                <td>@item.MudurAdi</td>
+                                <td>@item.KurumAdresi</td>
+                                <td>@item.KurumTelefon</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="btn btn-block btn-warning " title="Düzenle" href="/KurumveTaslaklar/Guncelle/@item.Id"><i style="width:45px;" class="fas fa-edit"></i></a>
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <button id="cl" type="submit" data-toggle="modal" data-kurumkodu="@item.KurumCode" data-kurumid="@item.Id" data-target="#modalPush" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+
+                            </tr>
+
+                        }
+
+
+                    </tbody>
+                </table>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+<script src="~/Content/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="~/Content/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="~/Content/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<!-- AdminLTE for demo purposes -->
+<script src="~/Content/dist/js/demo.js"></script>
+<script src="~/Content/jquery-3.4.1.min.js"></script>
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#alertmesaj").hide();
+        });
+
+    </script>
+
+    <script type="text/javascript">
+       $(document).ready(function(){
+           $("#cl").click(function () {
+
+               var degerim = $(this).data("kurumkodu");
+               var degerimiz = $(this).data("kurumid");
+              // alert(degerimiz + "  " + degerim);
+               $(".modal-body>p>strong").html(degerim);
+              // $(".modal-body>div>p").html(degerim);
+
+               $("#alertmesaj").val(degerimiz);
+                $(".kurumsil").click(function () {
+                    var deger = $(this).data("kurumid");
+                    var degerimiz = $(this).data("gorunmez", deger);
+
+
+
+                });
+
+           });
+
+
+
+   });
+
+          @*  $(".kurumsil").click(function () {
+                // var deger = $(this).data("kurumid");
+                var sonuc = $("deger").val();
+                $.ajax({
+                    type: "POST",
+                    url: '/KurumveTaslaklar/Sil/' + $("#deger").val(),
+                    content: "application/json",
+                    datatype: 'json',
+
+                    success: function () {
+                        console.log("guncellendi");
+                    }
+                });
+            });*@
+    </script>
+}
+
+
+
+

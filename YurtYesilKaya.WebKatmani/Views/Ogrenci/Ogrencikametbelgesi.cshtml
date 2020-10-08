@@ -1,0 +1,121 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="~/Content/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <script src="~/Content/fontawesome-free/js/all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/personelyazdir.css" media="screen, print" />
+    <style>
+        #deneme2 {
+            background: #d21b00;
+            background: linear-gradient(top, #d21b00, #8e0700);
+            padding: 20px 25px;
+            text-decoration: none;
+            color: #fff;
+            font: bold 30px Arial, Helvetica, sans-serif;
+            border-radius: 7px;
+            text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+            border: 5px solid #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+            position: absolute;
+            width: 200px;
+            height: 80px;
+            left: 95%;
+            top: 50%;
+        }
+
+            #deneme2:hover {
+                background: linear-gradient(top, #8e0700, #d21b00);
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+                box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+            }
+
+        #den {
+            background: #d21b00;
+            background: linear-gradient(top, #d21b00, #8e0700);
+            padding: 15px 35px;
+            text-decoration: none;
+            color: #fff;
+            font: bold 25px Arial, Helvetica, sans-serif;
+            border-radius: 7px;
+            text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+            border: 5px solid #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+            width: 200px;
+            position: absolute;
+            left: 95%;
+            top: 15%;
+        }
+
+            #den:hover {
+                background: linear-gradient(top, #8e0700, #d21b00);
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+                box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+            }
+    </style>
+</head>
+<body>
+    <div class="col-lg-10">
+
+
+
+
+        <div id="deneme2" onclick="window.print()" class="btn btn-danger btn-xs"><i class="fas fa-print" style="margin-right:3px;"></i> Yazdır</div>
+        <a id="den" href="/AnaSayfa/Index" class="btn btn-danger btn-xs"><i class="fas fa-backward" style="margin-right:3px;"></i> Anasayfa</a>
+
+
+        <div id="divYazdir" style="margin-top:150px;">
+            <center>
+
+
+                <h5 class="col-md-10" style="color:black; font-weight:500;">ÖĞRENCİ YURDU İKAMET BELGESİ</h5>
+               
+                <table class="table table-bordered " style="width:75%;">
+
+                   
+                    <tr>
+
+                        <td style="font-weight:500; width:30%; " colspan="1">T.C. Kimlik No:</td>
+                        <td style="font-weight:500; width:45%;" colspan="2"><input style="border-style:none; " placeholder="T.C. Kimlik Giriniz" /></td>
+
+                    </tr>
+                    <tr>
+
+                        <td style="font-weight:500;">Adı Soyadı:</td>
+                        <td><input style="border-style:none; " placeholder="AdSoyad  Giriniz" /></td>
+
+                    </tr>
+                    <tr>
+
+                        <td style="font-weight:500;">İkamet Dönemi:</td>
+                        <td><input placeholder="................" style="border-style:none;width:60px;" />/<input placeholder="..........." style="border-style:none;width:60px;" />Eğitim Öğretim Yılı</td>
+
+                    </tr>
+                    <tr>
+                        <td style="font-weight:500;" colspan="3">Yukarıda Bilgileri verilen kişi <input placeholder="............................................................................" style="border-style:none;width:240px;" /> Öğrenci Yurdunda 
+                        İkamet etmektedir.Bu belge kişinin isteği üzerine Elkart işleminde kullanılmak üzere düzenlenmiştir. </td>
+                    </tr>
+   
+                </table>
+                <div style="position:absolute;right:200px;margin-top:50px; "><input placeholder="............." style="border-style:none; width:50px;" />/<input placeholder="............" style="border-style:none;width:50px;"  />/<input placeholder="............." style="border-style:none;width:50px;"  /></div><br />
+                <div style="position:absolute;right:200px;margin-top:50px; ">Kurum Yetkilisi</div><br />
+                <div style="position:absolute;right:200px;margin-top:50px; ">Kaşe Mühür İmza</div>
+
+                
+
+
+
+            </center>
+        </div>
+    </div>
+</body>
+</html>
+

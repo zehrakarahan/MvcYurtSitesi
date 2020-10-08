@@ -1,0 +1,269 @@
+﻿@model YurtYesilKaya.WebKatmani.Models.OgrenciModel
+
+@{
+    ViewBag.Title = "BakiyeTanimlama";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    var bilgiler = (YurtYesilKaya.Entity.Entity.Ogrenci)ViewData["OgrenciBilgileri"];
+    var veriler = (YurtYesilKaya.WebKatmani.Models.OgrenciViewModel)ViewBag.modeldekiler2;
+    var veriler2 = (YurtYesilKaya.WebKatmani.Models.OgrenciViewModel)ViewBag.modeldekiler2;
+
+}
+  
+
+<style>
+    .yukaridaki{
+        position:absolute;
+        top:40px;
+        left:840px;
+    }
+    .table-striped{
+        width:800px;
+    }
+    #myTable_filter{
+
+    }
+</style>
+<style>
+    .table {
+        border: 2px;
+    }
+
+    .active {
+        background: #ef3e3e;
+        color: white;
+    }
+
+        .active:hover {
+            background: #c20000;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+        }
+
+    body {
+        background-color: #e8e8e8;
+    }
+
+    .grid-header-title {
+        color: blue;
+    }
+
+    .k-grid .k-button.btn-warning:after {
+        content: '\f0c5';
+        font-family: FontAwesome;
+        font-size: 5px;
+    }
+</style>
+<meta name="viewport" content="width=device-width" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+<script src="~/Content/jquery-3.4.1.min.js"></script>
+
+<script src="~/Scripts/gridmvc.js"></script>
+<script src="~/Scripts/gridmvc.lang.ru.js"></script>
+<script src="~/Scripts/gridmvc.min.js"></script>
+<script src="~/Content/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-html5-1.3.1/b-print-1.3.1/r-2.1.1/rg-1.0.0/datatables.min.css" />
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-html5-1.3.1/b-print-1.3.1/r-2.1.1/rg-1.0.0/datatables.min.js"></script>
+<img src="~/Content/yurt_adresmi.png"   style="margin-left:360px;"  />
+<!-- Button trigger modal-->
+<button type="button" class="btn btn-danger" id="goster" data-toggle="modal" data-target="#modalCart" style="width:200px; margin-top:-40px; margin-left:1135px;" >Öğrenci Arama</button>
+<a href="/Anasayfa/Index" class="btn btn-danger" style="width:200px; margin-top:-80px;">Anasayfa Dön</a>
+    <!-- Modal: modalCart -->
+    <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="margin-top:50px;"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="margin-left:-850px; width:900px; margin-top:-50px; height:610px;">
+                <!--Header-->
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Öğrenci Seçimi Yap</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="width:30px; height:20px; margin-top:-30px;" class="yukaridaki">x</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body" style="width:600px; height:1500px;">
+
+                    <div class="container" style="width:800px;  ">
+
+
+                        <table id="myTablete" class="table table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Seçiniz</th>
+                                    <th>Adı Soyadı</th>
+                                    <th>TcKimlikNo</th>
+                                    <th>Bölümü</th>
+                                    <th>Kayıt Ücreti</th>
+                                    <th>Oda no</th>
+                                    <th>Ödenen Borç</th>
+                                    <th>Kalan Borç</th>
+                                    <th>Bu Ay Taksit Tutarı</th>
+                                    <th>Taksit Sayısı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in veriler.OgrenciListesi)
+                            {
+                            <tr>
+
+                                <td><a href="/Ogrenci/BakiyeBilgileri/@item.Ogrenci.Id"><i class="fas fa-search"></i></a></td>
+                                <td>@item.Ogrenci.ogrenciadisoyadi</td>
+                                <td>@item.Ogrenci.Ogrencitckimlikno</td>
+                                <td>@item.Ogrenci.bolumadi</td>
+                                <td>@item.Ogrenci.Ogrencininkayitedildigimiktar</td>
+                                <td>@item.OdaBilgisi.OdaNo</td>
+                                <td>@item.OgrenciHareket.odenenborc</td>
+                                <td>@item.OgrenciHareket.kalanborc</td>
+                                <td>@item.TaksitOdeme.aylikodenecekmiktar</td>
+                                <td>@item.TaksitOdeme.TaksitSayisi</td>
+
+                            </tr>
+                            }
+
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+
+                </div>
+                <!--Footer-->
+
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#myTablete').DataTable();
+    </script>
+
+
+
+    <!-- Modal: modalCart -->
+    <div class="row" style="margin-top:-30px; margin-bottom:-40px;">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading" style="margin:auto;">
+                  SEÇİLEN ÖĞRENCİ BAKİYE BİLGİLERİ
+                </header>
+                @if (Model == null || Model != null )
+                {
+                <div class="panel-body" style="height:400px;">
+                    <div class="form">
+                        @using (Html.BeginForm("BakiyeKaydet", "Ogrenci", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                   
+
+
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="fullname" class="control-label col-lg-2" style="margin-left:40px; margin-top:-5px;">Öğrenci Adı Soyadı <span class="required"></span></label>
+                                <div class="col-lg-10">
+                                     @Html.TextBoxFor(m => m.Ogrenci.ogrenciadisoyadi, new { @required = "required", @class = "form-control", @style = "border:1px solid; position:absolute; top:-30px; margin-left:210px; ", @readonly = true })
+
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group ">
+                                <label for="address" class="control-label col-lg-2" style="margin-left:-217px; top:95px; position:absolute; ">Öğrenci TcKimlik No <span class="required"></span></label>
+                                <div class="col-lg-10">
+                                    @Html.TextBoxFor(m => m.Ogrenci.Ogrencitckimlikno, new { @required = "required", @class = "form-control", @style = "border:1px solid; position:absolute; top:24px; margin-top:-20px; margin-left:210px; ", @readonly = true })
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group ">
+                                <label for="username" class="control-label col-lg-2" style="margin-left:40px; top:135px; position:absolute;">Bu Ay Ödenecek Tutar<span class="required"></span></label>
+                                <div class="col-lg-10">
+                                    @Html.TextBoxFor(m => m.TaksitOdeme.aylikodenecekmiktar, new { @required = "required", @class = "form-control", @style = "border:1px solid;  position:absolute; top:8px;; margin-left:210px; ", @readonly = true })
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group ">
+                                <label for="confirm_password" class="control-label col-lg-2" style="margin-left:40px; top:170px; position:absolute;">Ödeyecebileceği Tutar<span class="required"></span></label>
+                                <div class="col-lg-10">
+                                    @Html.TextBoxFor(m => m.odenentutar, new { @required = "required", @class = "form-control", @style = "border:1px solid;  position:absolute; top:8px;; margin-left:210px; " })
+                                    @Html.HiddenFor(m => m.Ogrenci.Id)
+                                    @Html.HiddenFor(m => m.OgrenciHareket.Id)
+                                    @Html.HiddenFor(m => m.Ogrenci.TaksitOdemeId)
+                                    @Html.HiddenFor(m => m.TaksitOdeme.taksitodenecegitarihi)
+                                    @Html.HiddenFor(m=>m.VeliBilgileri.telefonno)
+                                    @Html.HiddenFor(m=>m.VeliBilgileri.Id)
+                                    @Html.HiddenFor(m=>m.Ogrenci.Ceptelefonu)
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group ">
+                                <label for="confirm_password" class="control-label col-lg-2" style="margin-left:40px;  top:210px; position:absolute;">Şuana Kadar Ödediği<span class="required"></span></label>
+                                <div class="col-lg-10">
+                                    @Html.TextBoxFor(m => m.OgrenciHareket.odenenborc, new { @required = "required", @class = "form-control", @style = "border:1px solid; position:absolute; top:8px; margin-left:210px; ", @readonly = true })
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group ">
+                                <label for="email" class="control-label col-lg-2" style="margin-left:40px;top:245px; position:absolute; ">Şuan Borç Bilgisi<span class="required"></span></label>
+                                <div class="col-lg-10">
+                                    @Html.TextBoxFor(m => m.OgrenciHareket.kalanborc, new { @required = "required", @class = "form-control", @style = "border:1px solid;  position:absolute; top:8px; margin-left:210px;  ", @readonly = true })
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group ">
+                                <label for="email" class="control-label col-lg-2" style="margin-left:40px;top:275px; position:absolute;">Taksit Ödenecek tarih <span class="required"></span></label>
+                                <div class="col-lg-10">
+                                    @Html.TextBoxFor(m => m.TaksitOdeme.taksitodenecegitarihi, new { @required = "required", @class = "form-control", @style = "border:1px solid;   position:absolute; top:8px; margin-left:210px; ", @type="date" })
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="email" class="control-label col-lg-2" style="margin-left:40px; top:305px; position:absolute;">Taksit Sayisi<span class="required"></span></label>
+                                <div class="col-lg-10">
+                                    @Html.TextBoxFor(m => m.TaksitOdeme.TaksitSayisi, new { @required = "required", @class = "form-control", @style = "border:1px solid;  position:absolute; top:28px; margin-left:210px; ", @readonly = true })
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="form-group ">
+                                <label for="email" class="control-label col-lg-2" style="margin-left:40px; top:345px; position:absolute;">Kalan Taksit Sayısı <span class="required"></span></label>
+                                <div class="col-lg-10">
+                                    @Html.TextBoxFor(m => m.kalantaksitsayisi, new { @required = "required", @class = "form-control", @style = "border:1px solid; position:absolute; top:43px; margin-left:210px; " })
+                                </div>
+                            </div>
+                            <button class="btn btn-danger" style="margin-left:400px;  margin-top:70px; width:150px; " id="kaydet" type="submit">Kaydet</button>
+                            <a href="/Ogrenci/Sifirla" class="btn btn-primary" style="margin-left:70px; margin-top:70px; width:150px;" >Verileri Sil</a>
+                            
+
+
+                        }
+                    </div>
+                </div>
+                }
+            </section>
+        </div>
+    </div>
+
+    <script src="~/Content/jquery-3.4.1.min.js"></script>
+    @section scripts{
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#myInput").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+
+            });
+
+        </script>
+
+    }
+

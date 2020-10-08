@@ -1,0 +1,988 @@
+﻿@model YurtYesilKaya.WebKatmani.Models.Veritabanisiniflari
+@{
+    Layout = null;
+    var gelen = (YurtYesilKaya.Entity.Entity.KurumBilgileri)ViewData["vieweGonderilenVeri"];
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/style.css" media="screen, print" />
+<link rel="stylesheet" type="text/css" href="~/Content/button.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+
+
+
+<style>
+    body {
+        background-color: burlywood;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    .haber {
+        border-left: 1px solid black;
+        position: absolute;
+        margin-top: 4px;
+        height: 74px;
+    }
+
+    .haber3 {
+        border-left: 1px solid black;
+        position: absolute;
+        margin-top: 4px;
+        height: 58px;
+    }
+
+    .haber2 {
+        border-left: 1px solid black;
+        position: absolute;
+        margin-top: -5px;
+        height: 92px;
+    }
+</style>
+
+
+<!--header start-->
+<!--header end-->
+<!--sidebar start-->
+<!--sidebar end-->
+<!--main content start-->
+<!-- Form validations -->
+<link href="~/Content/fontawesome-free/css/all.min.css" rel="stylesheet" />
+<script src="~/Content/fontawesome-free/js/all.min.js"></script>
+<script src="~/Content/fontawesome-free/js/fontawesome.min.js"></script>
+<script src="~/Content/jquery-3.4.1.min.js"></script>
+
+<div class="yazdir">
+    <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:burlywood; margin-bottom:-50px;">
+        <li class="nav-item show active">
+            <a class="nav-link in active" style="border:1px solid; border-color:brown; color:brown; font-size:18px;" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Öğrenci  Ekleme</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" style="border:1px solid; border-color:brown; color:brown; font-size:18px; " data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Veli Bilgileri Ekleme</a>
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab" style="border:1px solid; border-color:brown; color:brown; font-size:18px;  " data-toggle="tab" href="#genel" role="tab" aria-controls="genel" aria-selected="false">Genel Hususlar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab" style="border:1px solid; border-color:brown; color:brown; font-size:18px;  " data-toggle="tab" href="#mali" role="tab" aria-controls="mali" aria-selected="false">Mali Hususlar</a>
+        </li>
+        <li class="nav-item">
+            <div class="yazdirila"><a class="nav-link yazacak" style="border-color:brown; color:brown; font-size:18px;" href="/Anasayfa/Index" aria-selected="false"><i class="fas fa-undo" style="width:50px; height:40px; color:white;  margin-left:-130px;"></i><div style="color:white; margin-top:-40px; margin-left:35px;">AnaSayfa Dön</div></a></div>
+
+        </li>
+    </ul>
+</div>
+
+<div class="renkler" style="background-color:burlywood">
+    <section class="dikey">
+
+        <section class="panel" style="background-color:burlywood;">
+            <div id="sol">
+
+                @{
+                    DateTime deger = DateTime.Now;
+                    int yil = deger.Year;
+
+                    int sonuc = yil - 1;
+                }
+                @{
+                    List<SelectListItem> items = new List<SelectListItem>();
+                    items.Add(new SelectListItem { Text = "", Value = "" });
+                    items.Add(new SelectListItem { Text = "Geçici", Value = "Geçici" });
+                    items.Add(new SelectListItem { Text = "Kalıcı", Value = "Kalıcı" });
+                    ViewBag.SelectItem = "";
+                    ViewBag.listedekiler = items;
+
+                    List<SelectListItem> ogretim = new List<SelectListItem>();
+                    ogretim.Add(new SelectListItem { Text = "", Value = "" });
+                    ogretim.Add(new SelectListItem { Text = "Birinci", Value = "Birinci" });
+                    ogretim.Add(new SelectListItem { Text = "ikinci", Value = "ikinci" });
+                    ViewBag.Secilen = "";
+                    ViewBag.liste = ogretim;
+                    List<SelectListItem> taksit = new List<SelectListItem>();
+                    taksit.Add(new SelectListItem { Text = "", Value = "" });
+                    taksit.Add(new SelectListItem { Text = "Çekle ödeme", Value = "Çekle ödeme" });
+                    taksit.Add(new SelectListItem { Text = "Kartla ödeme", Value = "Kartla ödeme" });
+                    taksit.Add(new SelectListItem { Text = "Nakit ödeme", Value = "Nakit ödeme" });
+                    ViewBag.Secili = "";
+                    ViewBag.listeyeeklenen = taksit;
+
+                    List<SelectListItem> katbilgisi = new List<SelectListItem>();
+                    katbilgisi.Add(new SelectListItem { Text = "", Value = "" });
+                    katbilgisi.Add(new SelectListItem { Text = "1 Kat", Value = "1 Kat" });
+                    katbilgisi.Add(new SelectListItem { Text = "2 Kat", Value = "2 Kat" });
+                    katbilgisi.Add(new SelectListItem { Text = "3 Kat", Value = "3 Kat" });
+                    katbilgisi.Add(new SelectListItem { Text = "4 Kat", Value = "4 Kat" });
+                    katbilgisi.Add(new SelectListItem { Text = "5 Kat", Value = "5 Kat" });
+                    katbilgisi.Add(new SelectListItem { Text = "6 Kat", Value = "6 Kat" });
+                    katbilgisi.Add(new SelectListItem { Text = "7 Kat", Value = "7 Kat" });
+                    katbilgisi.Add(new SelectListItem { Text = "8 Kat", Value = "8 Kat" });
+
+                    ViewBag.Secilin = "";
+                    ViewBag.kat = katbilgisi;
+
+                    List<SelectListItem> sinif = new List<SelectListItem>();
+                    sinif.Add(new SelectListItem { Text = "", Value = "" });
+                    sinif.Add(new SelectListItem { Text = "hazirlik", Value = "hazirlik" });
+                    sinif.Add(new SelectListItem { Text = "bir", Value = "bir" });
+                    sinif.Add(new SelectListItem { Text = "iki", Value = "iki" });
+                    sinif.Add(new SelectListItem { Text = "üç", Value = "üç" });
+                    sinif.Add(new SelectListItem { Text = "dört", Value = "dört" });
+                    ViewBag.Secilisinif = "";
+                    ViewBag.listesinif = sinif;
+
+                }
+            </div>
+
+
+            <div class="panel-body yazilam ">
+
+
+                @using (Html.BeginForm("OgrenciKaydet", "Ogrenci", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+
+
+
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade in active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                            <table style="width:400px; height:250px; margin-left:180px; margin-top:30px; ">
+
+                                <thead id="baslik">
+
+                                    <tr style="padding:0 0 0 0;">
+
+                                        <th colspan="3" style="padding-bottom:0px; margin-right:5px; padding-right:0px;   " class="kurumbilgileri">
+
+                                            <img src="~/Content/merkezsev.png" alt="merkez" style="margin-left:1px; margin-top:1px; margin-bottom:-30px;" />
+                                            <h4 style="margin-left:255px; color:black; margin-top:-30px;"><strong>ÖZEL NİYAZİ MUHİBE YEŞİLKAYA</strong></h4>
+                                            <h4 style="margin-left:205px; color:black; margin-top:-12px; "><strong>YÜKSEKÖĞRENİM ERKEK ÖĞRENCİ YURDU</strong></h4>
+                                            <h4 style="margin-left:205px; color:black; margin-top:-10px; margin-bottom:5px;"><strong>@sonuc @DateTime.Now.Year  HİZMET SUNUM TAAHHÜTNAMESİ</strong></h4>
+                                            <img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="margin-left:735px; margin-right:-8px;  margin-top:-75px; margin-bottom:-30px;" />
+
+                                    </tr>
+                                    <tr><td colspan="3" style="color:black;"><h4><strong style="margin-left:300px;" id="kurumbilgileri">KURUM BİLGİLERİ</strong></h4></td></tr>
+                                    <tr><th colspan="1" style="width:300px; color:black;">Kurum Kodu</th><td colspan="2" style="color:black; width:400px;">@gelen.KurumCode</td></tr>
+                                    <tr><th colspan="1" style="color:black; margin-left:20px;">Kurum Adı</th><td colspan="2" style="color:black;">@gelen.KurumAdi</td></tr>
+                                    <tr><th colspan="1" style="color:black; margin-left:20px;">Kurum Adresi</th><td colspan="2" style="color:black;">@gelen.KurumAdresi</td></tr>
+                                    <tr><th style="color:black; margin-left:20px;">Kurucu Adı</th><td colspan="2" style="color:black;">@gelen.kurucuadi</td></tr>
+                                    <tr>
+                                        <th colspan="1" style="color:black; margin-left:20px;">Kurucu Temsilcinin<br /> Adı Soyadı</th>
+                                        <td colspan="1" style="color:black;">@gelen.KurucuTemsilciAdi</td>
+                                        <td colspan="1" style="color:black;">
+
+                                            <div style="margin-top:12px;"><strong> Müdürün<br /> Adı Soyadı</strong></div>
+                                            <div class="haber3" style="margin-left:92px; margin-top:-52px;">
+                                                <div style="margin-top:15px;">@gelen.MudurAdi</div>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    <tr style="margin-top:-3px;"><td colspan="3" style="color:black;"><h4><strong style="margin-left:300px;" id="kurumbilgileri">ÖĞRENCİ BİLGİLERİ</strong></h4></td></tr>
+                                    <tr>
+
+                                        <th colspan="1" style="width:240px; color:black;">Öğrenci Resim Yükle</th>
+                                        <td colspan="2" style="color:black; ">
+                                            <input type="file" accept="image/*" name="Foto" id="Foto" onchange="eylem()" />
+                                            <img src="" id="resim" style="margin-left:100px;" />
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="1" style="width:240px; color:black;">Tc Kimlik/Adı Soyadı</th>
+                                        <td colspan="2" style="color:black;">
+                                            @Html.TextBoxFor(model => model.Ogrenci.Ogrencitckimlikno, new { @required = "required", @class = "form-control", @maxlength = "11", type = "tel", style = "width:350px; height:34px; color:black; border: 1px solid;" })
+                                            @Html.TextBoxFor(model => model.Ogrenci.ogrenciadisoyadi, new { @required = "required", @class = "form-control", type = "text", style = "width:350px; margin-left:351px; height:34px; margin-top:-34px; color:black; border: 1px solid;" })
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th colspan="1" style="width:240px; color:black;">Baba Adı/Anne Adı</th>
+                                        <td colspan="2" style="color:black;">
+                                            @Html.TextBoxFor(model => model.Ogrenci.BabaAdi, new { @required = "required", @class = "form-control", type = "text", style = "width:350px;height:34px; color:black; border: 1px solid;" })
+                                            @Html.TextBoxFor(model => model.Ogrenci.AnneAdi, new { @required = "required", @class = "form-control", type = "text", style = "width:350px; margin-left:351px; margin-top:-34px; height:34px;color:black; border: 1px solid;" })
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th colspan="1" style="width:240px; color:black;">Dogum Yeri<br />Dogum Yılı<br />Okuduğu Okul</th>
+                                        <td colspan="2" style="color:black;">
+                                            @Html.TextBoxFor(model => model.Ogrenci.DogumYeri, new { @required = "required", @class = "form-control", type = "text", style = "width:200px; height:34px; color:black; border: 1px solid;" })
+                                            @Html.TextBoxFor(model => model.Ogrenci.dogumyili, new { @required = "required", @class = "form-control", type = "year", style = "width:100px; height:34px; margin-top:-34px; margin-left:201px; color:black; border: 1px solid;" })
+                                            @Html.TextBoxFor(model => model.Ogrenci.OkuduguOkul, new { @required = "required", type = "text", @class = "form-control", style = "width:400px; color:black; margin-top:-34px; margin-left:302px; height:34px; border: 1px solid;" })
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th colspan="1" style="width:240px; color:black;">Bölüm/Sınıf/Öğrenim şekli</th>
+                                        <td colspan="2" style="color:black; height:37px;">
+
+                                            @Html.TextBoxFor(m => m.Ogrenci.bolumadi, new { @required = "required", @class = "form-control", @style = "width:450px; color:black; height:34px;  border:1px solid; margin-top:0px;" })
+
+
+
+
+
+                                            @Html.DropDownListFor(m => m.Ogrenci.Sinifadi, new SelectList(ViewBag.listesinif, "Value", "Text", ViewBag.Secilisinif), new { @required = "required", @class = "form-control", @style = "width:95px; margin-left:452px; height:34px; margin-top:-34px; color:black; border:1px solid;" })
+
+                                            @Html.DropDownListFor(m => m.Ogrenci.Ogrenimturu, new SelectList(ViewBag.liste, "Value", "Text", ViewBag.Secilen), new { @required = "required", @class = "form-control", @style = "width:150px; height:34px; margin-top:-34px; margin-left:550px; color:black; border:1px solid;" })
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="1" style="width:240px; color:black;">
+                                            Barınma Türü<br /><div style="margin-left:17px;">Oda No</div>
+                                        </th>
+                                        <td colspan="2">
+                                            @Html.DropDownListFor(m => m.Ogrenci.BarinmaTuru, new SelectList(ViewBag.listedekiler, "Value", "Text", ViewBag.SelectItem), new { @required = "required", @class = "form-control", @style = "width:350px; height:34px; color:black; border:1px solid;" })
+                                            @Html.TextBoxFor(m => m.OdaBilgileri.OdaNo, new { @required = "required", @class = "form-control", @style = "width:350px; height:34px; margin-top:-34px; margin-left:351px; color:black; border:1px solid;" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="1" style="color:black;">Kalmaya Başlayacağı ve Çıkacağı Tarih</th>
+                                        <td colspan="2">
+                                            @Html.TextBoxFor(model => model.Ogrenci.Yurttakalmayabasladigitarih, new { @required = "required", @class = "form-control", style = "width:350px; height:40px; font-size:20px; color:black;  border:1px solid;  ", type = "date" })
+                                            @Html.TextBoxFor(model => model.Ogrenci.YurtAyrildigiTarih, new { @required = "required", @class = "form-control", style = "width:350px; height:40px; color:black; margin-left:351px; margin-top:-40px; font-size:20px;  border:1px solid;  ", type = "date" })
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th colspan="1" style="color:black;">Öğrencinin Ev Adresi</th>
+
+                                        <td colspan="2">@Html.TextAreaFor(model => model.Ogrenci.OgrenciAdress, new { @required = "required", @class = "form-control", style = "width:700px; height:34px; color:black; border: 1px solid; ", type = "text" })</td>
+                                    </tr>
+                                    <tr>
+                                        <th co,lspan="1" style="color:black;">Öğrenci Cep<br />Acil D.Telefon</th>
+
+                                        <td colspan="2">
+                                            @Html.TextBoxFor(model => model.Ogrenci.Ceptelefonu, new { @required = "required", @class = "form-control", @maxlength = "11", style = "width:350px;height:34px; color:black; border: 1px solid; ", type = "tel" })
+                                            @Html.TextBoxFor(model => model.Ogrenci.AcilDurumCep, new { @required = "required", @class = "form-control", @maxlength = "11", style = "width:350px;height:34px; margin-top:-34px; margin-left:351px; color:black; border: 1px solid;  ", type = "tel" })
+                                        </td>
+                                    </tr>
+                                    <tr><td colspan="3" style="color:black;"><h4><strong class="veliislemi" style="margin-left:300px;">VELİ BİLGİLERİ</strong></h4></td></tr>
+                                    <tr>
+                                        <th colspan="1" style="color:black;">T.C Kimlik<br />Adı Soyadı </th>
+                                        <td colspan="2">
+                                            @Html.TextBoxFor(model => model.VeliBilgileri.TckimlikNo, new { @required = "required", @class = "form-control", @maxlength = "11", style = "width:350px;height:34px; color:black; border: 1px solid; ", type = "tel" })
+                                            @Html.TextBoxFor(model => model.VeliBilgileri.VeliAdiSoyadi, new { @required = "required", @class = "form-control", style = "width:350px; height:34px; margin-left:351px; margin-top:-34px; color:black; border: 1px solid;  ", type = "text" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="1" style="color:black;">Mesleği Sosyal Güvencesi</th>
+                                        <td colspan="2">
+                                            @Html.TextBoxFor(model => model.VeliBilgileri.velimeslegi, new { @required = "required", @class = "form-control", style = "width:350px;height:34px; color:black; border: 1px solid;  ", type = "text" })
+                                            @Html.TextBoxFor(model => model.VeliBilgileri.SosyalGuvencesi, new { @required = "required", @class = "form-control", style = "width:350px; height:34px; margin-left:351px; margin-top:-34px; color:black; border: 1px solid;  ", type = "text" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="1" style="color:black;">Ev/Cep/Email Adresi</th>
+                                        <td colspan="2">
+                                            @Html.TextBoxFor(model => model.VeliBilgileri.telefonno, new { @required = "required", @class = "form-control", @maxlength = "11", style = "width:350px; height:34px; color:black; border: 1px solid;  ", type = "tel" })
+                                            @Html.TextBoxFor(model => model.VeliBilgileri.mailadresi, new { @required = "required", @class = "form-control", style = "width:350px; height:34px; margin-left:351px; margin-top:-34px; color:black; border: 1px solid;  ", type = "email" })
+                                        </td>
+
+                                    </tr>
+                                    <tr><td colspan="3" style="color:black;"><h4><strong style="margin-left:200px;">BARINMA HİZMETİ ÜCRETİNE İLİŞKİN HUSUSLAR</strong></h4></td></tr>
+                                    <tr>
+                                        <th colspan="1" style="color:black;">İlan edilen<br /> yıllık barınma<br /> ücreti</th>
+
+                                        <td colspan="2">
+                                            @Html.TextBoxFor(model => model.Ogrenci.ilanedilenyillikmiktar, new { @required = "required", @class = "form-control", style = "width:249px; height:34px; color:black; border: 1px solid; ", type = "number" })
+                                            <div class="haber" style="margin-left:250px; margin-top:-46px;">
+                                                <div style="margin-top:22px;"> Yazıyla Tutar:</div>
+                                                @Html.TextBoxFor(model => model.Ogrenci.ilandabelirtilenYaziileTutar, new { @required = "required", @class = "form-control", style = "margin-top:-28px; height:34px; margin-left:98px; width:351px; color:black; border: 1px solid; ", type = "text" })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="1" style="color:black;">Öğrencinin kayıt edilliği yıllık barınma ücreti</th>
+
+                                        <td colspan="2">
+                                            @Html.TextBoxFor(model => model.Ogrenci.Ogrencininkayitedildigimiktar, new { @required = "required", @class = "form-control", style = "width:249px; height:39px; color:black; border: 1px solid;", type = "number" })
+                                            <div class="haber2" style="margin-left:250px; margin-top:-74px;">
+                                                <div style="margin-top:44px;">Yazıyla Tutar:</div>
+
+                                                @Html.TextBoxFor(model => model.Ogrenci.ogrencikayitedildigiyaziletutar, new { @required = "required", @class = "form-control", style = "width:351px; margin-top:-23px; margin-left:98px; height:39px; color:black; border: 1px solid;", type = "text" })
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="1" style="color:black;">Ödeme şekli</th>
+                                        <td colspan="2" style="height:34px;">
+                                            @Html.RadioButtonFor(m => m.Ogrenci.OdemeSekli, "Pesin", new { @class = "form-control", style = "width:40px; height:22px; margin-top:7px;" })<div style="margin-top:-18px; margin-left:35px;">Pesin</div>
+
+                                            @Html.RadioButtonFor(m => m.Ogrenci.OdemeSekli, "Taksit", new { @class = "form-control", style = "width:40px; height:22px; margin-left:70px; margin-top:-21px; " })<div style="margin-top:-18px; margin-left:99px;">Taksit <div style="margin-top:-18px; margin-left:90px;">Taksit Ödeme Türü</div></div>
+
+
+
+                                            @Html.DropDownListFor(model => model.TaksitOdeme.OdemeTuru, new SelectList(ViewBag.listeyeeklenen, "Value", "Text", ViewBag.Secili), new { @required = "required", @class = "form-control", @style = "width:378px; margin-top:-27px; height:34px; margin-left:325px; color:black; border:1px solid;" })
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="1" style="color:black;">Taksit başlangıç tarihi</th>
+                                        <td colspan="2">
+
+                                            @Html.TextBoxFor(model => model.TaksitOdeme.taksitodenecegitarihi, new { @required = "required", style = "width:280px; height:34px; color:black; border: 1px solid; font-size:15px; ", @class = "form-control", type = "date" })
+
+                                            <div class="haber3" style="margin-left:281px; margin-top:-36px;">
+                                                <div style="margin-top:12px;"> Peşinat Miktarı</div>
+                                            </div>
+                                            @Html.TextBoxFor(model => model.Ogrenci.pesinatmiktari, new { @required = "required", style = "margin-left:390px; width:311px; height:34px; margin-top:-34px; color:black;border: 1px solid; ", @class = "form-control" })
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="1" style="color:black;">Kat Bilgisi <br>Depozito Miktarı</th>
+                                        <td colspan="2">
+                                            @Html.DropDownListFor(model => model.Ogrenci.Katbilgisi, new SelectList(ViewBag.kat, "Value", "Text", ViewBag.Secilin), new { @required = "required", @class = "form-control", @style = "width:120px; margin-top:0px; margin-left:1px; height:34px; font-size:15px; color:black; border:1px solid;" })
+                                            @Html.TextBoxFor(model => model.Ogrenci.depozitomiktari, new { @required = "required", @class = "form-control", style = "margin-left:123px; width:155px;color:black; border:1px solid; height:34px; margin-top:-34px; ", type = "number" })
+                                            <div class="haber3" style="margin-left:281px; margin-top:-56px;">
+                                                <div style="margin-top:25px;">Taksit Sayısı ve Tutarı</div>
+                                            </div>
+                                            @Html.TextBoxFor(model => model.TaksitOdeme.TaksitSayisi, new { @required = "required", style = "margin-left:448px; width:120px; height:34px; margin-top:-34px; color:black;border: 1px solid; ", @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.TaksitOdeme.aylikodenecekmiktar, new { @required = "required", style = "margin-left:570px; width:130px; height:34px; margin-top:-34px; color:black;border: 1px solid; ", @class = "form-control" })
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="1" style="color:black;">indirim çeşidi<br />indirim Miktarı</th>
+                                        <td colspan="2">
+
+                                            @Html.DropDownListFor(m => m.ozeldurumnedeni, ((IEnumerable<SelectListItem>)ViewBag.oliste), new { @class = "form-control", @style = "width:350px; height:34px; color:black; border: 1px solid;" })
+                                            @Html.TextBoxFor(m => m.Ogrenci.Ozeldurumindirimmiktari, new { @style = "width:349px; height:34px; color:black; border:1px solid; margin-left:351px; margin-top:-34px;", @class = "form-control", type = "number" })
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </table>
+
+                            <div class="yazdiril" style="margin-left:1132px; margin-top:188px;;"><a href="#" class="yazacak" onclick="window.print()">Yazdir</a></div>
+
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <table style="width:800px; height:250px; margin-left:180px; margin-top:10px;">
+
+
+                                <tr style="margin-top:-30px;"><td colspan="3" style="color:black;"><h4><strong class="yemeklistesi" style="margin-left:300px;">YEMEK HİZMETİ</strong></h4></td></tr>
+                                <tr style="margin-top:-30px;">
+                                    <th colspan="1" rowspan="4" style="color:black; ">Barınma Hizmeti Ücretine <br /> Dahil Yemek Hizmeti</th>
+                                    <td colspan="1"><strong> Hafta içi</strong></td>
+                                    <td colspan="1"><strong> Hafta Sonu</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"><input type="checkbox" name="kutu1" id="kutu1" checked>Kahvaltı<br></td>
+                                    <td colspan="1"><input type="checkbox" name="kutu1" id="kutu1" checked>Kahvaltı<br></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"><input type="checkbox" name="kutu1" id="kutu1">Öğle Yemeği<br></td>
+                                    <td colspan="1"><input type="checkbox" name="kutu1" id="kutu1">Öğle Yemeği<br></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1"><input type="checkbox" name="kutu1" id="kutu1" checked>Akşam Yemeği<br></td>
+                                    <td colspan="1"><input type="checkbox" name="kutu1" id="kutu1" checked>Akşam Yemeği<br></td>
+
+                                </tr>
+                                <tr style="margin-top:-30px;"><td colspan="3" style="color:black;"><h4><strong style="margin-left:170px;">KURUM TARAFINDAN SUNULACAK OLAN HİZMETİN ÖZELLİKLERİ</strong></h4></td></tr>
+                                <tr>
+                                    <th style="color:black;" rowspan="4">Taahhüt Edilen Yatakhane Kontenjanı</th>
+                                    <td>
+                                        @Html.RadioButtonFor(model => model.OdaBilgileri.odakisisayisi, "2 Kişilik yatakhane")2 Kişilik yatakhane
+
+                                        <br>
+                                    </td>
+                                    <td>
+                                        @Html.RadioButtonFor(model => model.OdaBilgileri.odakisisayisi, "6 Kişilik yatakhane")6 Kişilik yatakhane
+                                        <br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.RadioButtonFor(model => model.OdaBilgileri.odakisisayisi, "3 Kişilik yatakhane")3 Kişilik yatakhane
+                                        <br>
+                                    </td>
+                                    <td>
+                                        @Html.RadioButtonFor(model => model.OdaBilgileri.odakisisayisi, "1 Kişilik suit daire")1 Kişilik süit daire
+                                        <br>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.RadioButtonFor(model => model.OdaBilgileri.odakisisayisi, "4 Kişilik yatakhane")4 Kişilik yatakhane
+                                        <br>
+                                    </td>
+                                    <td>
+                                        @Html.RadioButtonFor(model => model.OdaBilgileri.odakisisayisi, "3 Kişilik süit daire")3 Kişilik süit daire
+                                        <br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.RadioButtonFor(model => model.OdaBilgileri.odakisisayisi, "5 Kişilik yatakhane(wc-banyo yok)")5 Kişilik yatakhane(wc-banyo yok)
+                                        <br>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th style="color:black;">Yatakhane odasında tuvalet banyo bulunma durumu</th>
+                                    <td colspan="2" style="height:34px;">
+                                        @Html.RadioButtonFor(m => m.Ogrenci.banyovarmi, "Var", new { @class = "form-control", style = "width:20px; height:15px; margin-top:20px;" })<div style="margin-top:-15px; margin-left:30px;">Var</div>
+
+                                        @Html.RadioButtonFor(m => m.Ogrenci.banyovarmi, "Yok", new { @class = "form-control", style = "width:20px; height:15px; margin-left:70px; margin-top:-17px; " })<div style="margin-top:-15px; margin-left:90px;">Yok </div>
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Nevresim takımı değişimi</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="NevresimGunu" id="kutug">Günlük
+                                        <input style="margin-left:40px;" type="checkbox" name="NevresimGunu" id="kutuh">Haftalık
+                                        <input style="margin-left:40px;" type="checkbox" name="NevresimGunu" id="kutua">Aylık
+                                        <input style="margin-left:20px;" type="checkbox" name="NevresimGunu" id="kutud" checked>Diğer(Talebe Göre)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Sıcak su hizmeti</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1" checked>7/24
+                                        <input style="margin-left:60px; " type="checkbox" name="kutu1" id="kutu1">Sabah-Akşam
+                                        <input style="margin-left:40px; " type="checkbox" name="kutu1" id="kutu1">Hafta sonları tam gün
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Kurumun ısınma şekli</th>
+                                    <td colspan="1"><input type="checkbox" name="kutu1" id="kutu1" checked>Kalorifer</td>
+                                    <td colspan="1"><input type="checkbox" name="kutu1" id="kutu1">İklimlendirme<br></td>
+                                </tr>
+                                <tr>
+                                    <th rowspan="2" style="color:black;">Çamaşır yıkama hizmeti</th>
+                                    <td><input type="checkbox" name="kutu1" id="kutu1">Günlük<br></td>
+                                    <td><input type="checkbox" name="kutu1" id="kutu1" checked>Diğer<br></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="kutu1" id="kutu1">Haftalık<br></td>
+                                    <td><input type="checkbox" name="kutu1" id="kutu1">Yok<br></td>
+                                </tr>
+                                <tr>
+                                    <th style="color:black;">Yurtta çamaşır makinası</th>
+                                    <td>
+                                        <input type="checkbox" name="kutu1" id="kutu1" checked>Var
+                                    </td>
+                                    <td><input type="checkbox" name="kutu1" id="kutu1">Yok</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Ütü hizmeti</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1">Günlük
+                                        <input style="margin-left:60px;" type="checkbox" name="kutu1" id="kutu1">Yok
+                                        <input style="margin-left:100px; " type="checkbox" name="kutu1" id="kutu1">Haftalık
+                                        <input style="margin-left:40px; " type="checkbox" name="kutu1" id="kutu1" checked>Diğer
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Oda temizlik hizmeti</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1" checked>Günlük
+                                        <input style="margin-left:130px;  " type="checkbox" name="kutu1" id="kutu1" checked>Haftalık
+                                        <input style="margin-left:125px; " type="checkbox" name="kutu1" id="kutu1">Diğer
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Ortak alanların temizlik hizmeti</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1" checked>Günlük
+                                        <input style="margin-left:130px; " type="checkbox" name="kutu1" id="kutu1">Haftalık
+                                        <input style="margin-left:125px;" type="checkbox" name="kutu1" id="kutu1">Diğer
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Ders yılı dışında hizmet durumu</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1" checked>Var
+                                        <input type="checkbox" style="margin-left:150px; " name="kutu1" id="kutu1" checked>Yok<br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Okul servisi</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1">Var
+                                        <input style="margin-left:40px;" type="checkbox" name="kutu1" id="kutu1">Yok
+                                        <input style="margin-left:30px; " type="checkbox" name="kutu1" id="kutu1" checked> Diğer-Yurt idaresinin belirlediği saatlerde<br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Devamsızlıkta veli bilgilendirmesi</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1" checked>Var
+                                        <input style="margin-left:40px; " type="checkbox" name="kutu1" id="kutu1">Yok
+                                        <input style="margin-left:30px;" type="checkbox" name="kutu1" id="kutu1">Telefon
+                                        <input style="margin-left:50px;" type="checkbox" name="kutu1" id="kutu1" checked>Sms
+                                        <input style="margin-left:40px; " type="checkbox" name="kutu1" id="kutu1" checked>E-posta
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Giriş - Çıkış kontrolü</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1">İmza ile
+                                        <input type="checkbox" style="margin-left:80px; " name="kutu1" id="kutu1">Kart ile
+                                        <input type="checkbox" style="margin-left:120px; " name="kutu1" id="kutu1" checked>Diger-yoklama
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Öğrenci giriş - çıkış saatleri</th>
+                                    <td colspan="1">Sabah en erken erken:<strong>06:00</strong></td>
+                                    <td colspan="1">Akşam en geç:<strong>24:00</strong></td>
+                                </tr>
+                                <tr>
+                                    <th style="color:black;">Kurumda Wi-fi hizmeti</th>
+                                    <td><input type="checkbox" name="kutu1" id="kutu1" checked>Var  Limiti  ve Hızı:<strong>Sınırsız 100mb -kullanıcılar arasında dağıtılmakta</strong><br></td>
+                                    <td><input type="checkbox" name="kutu1" id="kutu1">Yok<br></td>
+
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Kurumda ücretsiz bilgisayar, İnternet ve yazıcı hizmeti</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1">Var
+                                        <input style="margin-left:180px;" type="checkbox" name="kutu1" id="kutu1">Yok
+                                        <input style="margin-left:120px;" type="checkbox" name="kutu1" id="kutu1" checked>Diğer
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="3" style="color:black;">Hastalığa özel beslenme hizmeti</th>
+                                    <td><input type="checkbox" name="kutu1" id="kutu1" checked>Yok</td>
+                                    <td><input type="checkbox" name="kutu1" id="kutu1">Var</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="kutu1" id="kutu1">Şekersiz<br></td>
+                                    <td><input type="checkbox" name="kutu1" id="kutu1">Tuzsuz<br></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="kutu1" id="kutu1">Glutensiz<br></td>
+                                    <td><input type="checkbox" name="kutu1" id="kutu1">Diğer(.........)<br></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Öğrencilerin değerli eşyalarını muhafaza hizmeti</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1">Var
+                                        <input type="checkbox" style="margin-left:150px; " name="kutu1" id="kutu1" checked>Yok<br>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Binada güvenlik görevlisi hizmeti</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1">Var
+                                        <input type="checkbox" style="margin-left:150px; " name="kutu1" id="kutu1" checked>Yok<br>
+                                    </td>
+                                </tr>
+                                <tr><td colspan="3" style="color:black;"><h4><strong class="personeliliski" style="margin-left:300px;">PERSONELE İLİŞKİN DURUMLAR</strong></h4></td></tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Rehber öğretmen</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1">Var
+                                        <input type="checkbox" style="margin-left:150px; " name="kutu1" id="kutu1" checked>Yok<br>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Sağlık personeli ( Doktor, hemşire, diğer………….)</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1" checked>Var
+                                        <input type="checkbox" style="margin-left:150px; " name="kutu1" id="kutu1">Yok<br>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Etkinlik / Acil durumlarda ulaşım hizmeti</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1" checked>Var
+                                        <input type="checkbox" style="margin-left:150px;" name="kutu1" id="kutu1">Yok<br>
+                                    </td>
+
+                                </tr>
+                                <tr><td colspan="3" style="color:black;"><h4><strong style="margin-left:300px;">SOSYAL İMKANLAR</strong></h4></td></tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Çok amaçlı salon / Spor odası / Spor birimleri</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1" checked>Var
+                                        <input type="checkbox" style="margin-left:150px;" name="kutu1" id="kutu1">Yok<br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Hamam , sauna</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1">Var
+                                        <input type="checkbox" style="margin-left:150px; " name="kutu1" id="kutu1" checked>Yok<br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Yüzme havuzu</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1">Var
+                                        <input type="checkbox" style="margin-left:150px; " name="kutu1" id="kutu1" checked>Yok<br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Kantin / Çay ocağı</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1" checked>Var
+                                        <input type="checkbox" style="margin-left:150px;" name="kutu1" id="kutu1">Yok<br>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th colspan="1" style="color:black;">Revir</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1" checked>Var
+                                        <input type="checkbox" style="margin-left:150px;" name="kutu1" id="kutu1">Yok<br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">
+                                        Her öğrenci için yatak,<br />
+                                        çarşaf, nevresim ve kılıfı, yastıklar,<br />
+                                        iklim şartlarına göre pike ve battaniye kurumun tahsisi
+                                    </th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1" checked>Var
+                                        <input type="checkbox" style="margin-left:150px; " name="kutu1" id="kutu1">Yok<br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" style="color:black;">Yatak, dolap, kitaplık ve ortamın tertip ve düzeninin sağlanması</th>
+                                    <td colspan="2">
+                                        <input type="checkbox" name="kutu1" id="kutu1" checked>Var
+                                        <input type="checkbox" style="margin-left:150px; " name="kutu1" id="kutu1">Yok<br>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div class="yazdiril" style="margin-left:1130px; margin-top:188px;"><a href="#" class="yazacak" onclick="window.print()">Yazdir</a></div>
+
+                        </div>
+
+
+                        <div class="tab-pane fade" id="genel" role="tabpanel" aria-labelledby="genel-tab">
+                            <div id="sag">
+                                <table style="width:800px; height:250px;  margin-left:160px; margin-top:10px;" class="geneltablo">
+                                    <tr><td colspan="3" style="color:black;"><h4><strong class="genelhususlar" style="margin-left:300px;">GENEL HUSUSLAR</strong></h4></td></tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            1-Öğrencinin yeni dönemdeki barınma ücreti,bir önceki öğretim yılında kurum ve öğrenci arasında belirtilen 
+                                             barınma hizmeti ücretine Yönetmelik hükümleri doğrultusunda artış yapılarak belirlenecektir.<br />
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black; "><div style="margin-left:-1px;">2-Gezi ve benzeri etkinlikler için öğrenci/veliden ücret alınacaksa faaliyet öncesi belirlenecek ve duyurulacaktır.</div></th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black; "><div style="margin-left:-1px;">3-Ergin/Reşit olmayan öğrencinin velisi,kurum müdürlüğüne
+                                            öğrencisini kimlerin ziyaret edeceğini yazılı beyanla bildirecektir.</div></th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            4-Bu hizmet sunum taahhütnamesinde doğan hukuki ve mali yükümlülükler doğrultusunda, <br />
+                                            veli/yükseköğrenim öğrencisi; yurt ücretinin vadesinde ödemesinden ve öğrenci tarafından kurum  <br />
+                                            <div style="margin-left:-1px;">mallarına veya kurumda bulunan diğer öğrencilerin mallarına verilen zararların tazmininden sorumlu olacaktır.</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            5-Kurumun, öğrencinin güvenliğini sağlamaması veya barınma hizmetine ilişkin hizmet sunum  taahhüt-<br />
+                                            <div style="margin-left:-1px; ">namesinde yer alan yükümlülüklerini yerine getirmemesi nedeniyle kurumdan ayrılan </div>
+                                            <div style="margin-left:1px; ">öğrenciye depozitoları ile peşin ödeme yapılan hallerde kurumda barındığı aylara  </div>
+                                            <div style="margin-left:-1px;">ait ücret mahsup edilerek geriye kalan tutar bir ay içinde iade edilir ve hizmet 
+                                            hizmet sunum taahhütnamesi feshedilir.</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            6-Yemekler ve miktarları bir öğrenciye gerekli olan besin maddelerini, kaloriyi ve vitaminleri
+                                            <div style="margin-left:-1px;">sağlayacak nitelikte olacak, yemek listelerinin düzenlenmesinde mevsimler ve öğrencilerin gelişim özellikleri dikkate alınacakır.</div>
+                                        </th>
+                                    </tr>
+                                   
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            7-Kuruma kayıt yaptıran öğrencilerden 15 eylül tarihine kadar kurumdan ayrılanlardan hizmet sunum  <br />
+                                            <div style="margin-left:-1px; ">taahhütnamesinde belirtilen yıllık barınma hizmeti ücretinin %10'u 15 eylül sonrasında ayrılanlardan</div>
+                                            <div style="margin-left:-1px; "> ise barınma hizmeti ücretinin %30'u alınır.Bu öğrencilere depozitoları ile peşin ödeme yapılan hallerde</div>
+                                            <div style="margin-left:-1px;">  bu fıkraya göre hesaplanacak ücret mahsup
+                                            edilmesi sonrasında geriye kalan tutar bir ay içinde iade edilir  ve hizmet sunum 
+                                                taahhütnamesi feshedilir.Aylık  barınma hizmeti ücreti, hizmet sunum taahhütnamesinde belirlenen 
+                                            yıllık barınma hizmeti ücretinin hizmet sunulmak üzere belirlenen ay sayısına bölünmesi ile tespit 
+                                            edilir.Kurumdan çıkarma cezası alan öğrencilere de bu hüküm uygulanır.</div>
+                                        </th>
+                                    </tr>
+                               
+                                
+
+                                  
+                                 
+                                </table>
+                                <table style="width:800px; height:250px;  margin-left:160px; margin-top:40px;" class="geneltablo">
+                                    <tr><td colspan="3" style="color:black;"><h4><strong class="genelhususlar" style="margin-left:300px;">GENEL HUSUSLAR</strong></h4></td></tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            1-Yeni dönemdeki barınma hizmeti ücreti, bir önceki öğretim yılında kurum ve öğrenci arasında
+                                            belirlenen barınma hizmeti ücretine kayıt yenileme tarihinden bir önceki ayda açıklanan(yıllık yurt
+                                            <div style="margin-bottom:-15px; margin-left:-1px;">içi üretici fiyat endeksi + tüketici fiyat endeksi ) / 2 oranına en fazla yüzde beş daha eklendiğinde oluşan oranda artış yapılarak belirlenecektir.</div> <br />
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black; "><div style="margin-left:-1px;">2-Gezi ve benzeri etkinlikler için öğrenci/veliden ücret alınacaksa faaliyet öncesi belirlenecek ve duyurulacaktır.</div></th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            3-Bu hizmet sunum taahhütnamesinde doğan hukuki ve mali yükümlülükler doğrultusunda, <br />
+                                            veli/yükseköğrenim öğrencisi; yurt ücretinin vadesinde ödemesinden ve öğrenci tarafından kurum  <br />
+                                            <div style="margin-left:-1px;">mallarına veya kurumda bulunan diğer öğrencilerin mallarına verilen zararların tazmininden sorumlu olacaktır.</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            4-Kurumun, öğrencinin güvenliğini sağlamaması, barınma, beslenme ve diğer sosyal ihtiyaçlarını  <br />
+                                            <div style="margin-left:-1px; ">karşılamaması, hizmet sunum taahhütnamesinde yer alan yükümlülüklerini yerine getirmemesi </div>
+                                            <div style="margin-left:1px; ">durumunda, öğrenci/velinin talebi doğrultusunda barınma hizmeti ücreti ve depozitoya ilişkin  </div>
+                                            <div style="margin-left:-1px;">Yönetmelik hükümleri gereği mahsuplaşma yapılarak öğrencinin kurumdan ayrılmasına imkan sağlayacaktır. Ücret, depozito iadesi 10 iş günü içerisinde öğrenci/veliye yapılacaktır.</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            5-Yemekler ve miktarları bir öğrenciye gerekli olan besin maddelerini, kaloriyi ve vitaminleri
+                                            <div style="margin-left:-1px;">sağlayacak nitelikte olacak, yemek listelerinin düzenlenmesinde mevsimler ve öğrencilerin gelişim özellikleri dikkate alınacakır.</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;"><div style="margin-left:-1px;">6-Kuruma yabancıların girmesine izin verilmeyecekir.</div></th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            7-Öğrencinin kurum tarafından güvenliğinin sağlanmaması, barınma, beslenme ve diğer sosyal <br />
+                                            <div style="margin-left:-1px; ">ihtiyaçlarının karşılanmaması,hizmet sunum taahhütnamesinde yer alan kurumun yükümlü- </div>
+                                            <div style="margin-left:-1px; ">lüklerini yerine getirmemesi dışındaki nedenlerle kurumdan ayrılması halinde, barınma hizmeti  </div>
+                                            <div style="margin-left:-1px;">aldığı aylar ve içinde bulunulan ayın ücretinin tamamı ve kalan aylara ait barınma hizmeti ücretinin %30’u alınır.</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            <div style="margin-left:-1px; margin-bottom:-1px;">8-Yurdun bütün kurallarına, "Özel Öğrenci Yurtları Yönetmeliği" ile yurdun dâhili yönetmelik  </div>
+                                            <div style="margin-left:-1px; ">hükümleri, yurt idaresinin emir ve talimatlarına eksiksiz uymayı,</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            9-Yurt dahilinde tertip ve temizliğe azami derecede riayet etmeyi, kendime mahsus tahsil edilen
+                                            <div style="margin-left:-1px;">yatağı, dolabı ve odayı zaman temiz ve düzenli tutmayı,</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            10-Yurdumuzun sınırları içinde alkol almamayı, sigara içmemeyi, yemekhane, banyo, dinlenme
+                                            <div style="margin-left:-1px;">salonu ve yurda girip çıkmada zaman çizelgesine uymayı, aksi durumda aleyhime sonuçlanacak mahrumiyetleri kabullenmeyi,</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            11-Yurda girişte, yurttan ayrılışta ve yurt idaresinin lüzumlu gördüğü zamanlarda dolap, bavul gibi
+                                            <div style="margin-left:-1px;">şahsıma ait hususi eşyayı yurt idaresinin kontrolüne açık bulundurmayı,</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            <div style="margin-left:-1px; ">12- Yurttan süresiz ayrılırken idareye haber vermeyi, şahsıma teslim edilen tüm demirbaş eşyayı,</div>
+                                            <div style="margin-left:-1px;">yatakhane ve yurt kimlik kartlarını, oda ve dolap anahtarlarını aynen sağlam olarak iade etmeyi,</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            13-Yurt idaresinin tayin edeceği mahalden başka yerlerde yiyecek bulundurmamayı, yememeyi,
+                                            <div style="margin-left:-1px;"> yemek,çay, kahve gibi şeyleri pişirmemeyi, mahallinden başka yerlere çamaşır asmamayı,</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            14-Mevcut elektrik tesislerine ilave, tadilat vs. herhangi bir şekilde müdahale etmemeyi, ütü
+                                            <div style="margin-left:-1px;">haricinde ısıtıcı gibi herhangi bir elektrikli alet kullanmamayı,</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            15-Yurdun herhangi bir yerine siyasi propagandayı ya da yabancı ve zararlı ideolojileri çağrış-
+                                            tıracak amblem fotoğraf yapıştırmamayı , resim çizmemeyi, yazı yazmamayı, yurt dahilinde
+                                            <div style="margin-left:-1px;">herhangi bir siyasi tartışmaya,polemiğe girmemeyi ve bu doğrultularda herhangi bir faaliyet göstermemeyi</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            <div style="margin-left:-1px;"> 16-Habersiz ve izinsiz olarak yurdu terk etmemeyi gecelik ayrılmalar için yurt idari izin formu tanzim etmeyi,</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            17-Yurt içerisinde arkadaşlarla iyi geçinmeyi, onlarla ne surette olursa olsun kavga etmemeyi,
+                                            hiçkimsenin hakkına tecavüzde bulunmamayı argo, küfür içerikli sözler kullanmamayı,
+                                            <div style="margin-left:-1px;"> herhangi bir haksızlığa uğrama durumunda meselenin çözümü için hemen yurt idaresine başvurmayı</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            <div style="margin-left:-1px;"> 18-Okunması yasak, toplum ahlakına aykırı her türlü neşriyatı yurda sokmamayı,</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            <div style="margin-left:-1px;"> 19-Silah, patlayıcı madde ve bıçak gibi kesici, delici,yaralayıcı  maddeleri yurda sokmamayı</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            <div style="margin-left:-1px;"> 20-Yurt idaresi, mensupları ve umumi idare aleyhine münferiden veya toplu olarak hareket   </div>
+                                            etmemeyi, yazılı veya sözlü tahrik edici beyanlarda bulunmamayı veya buna teşvik ve tahrik etmemeyi, işgal,boykot ve izinsiz yürüyüşlere iştirak etmemeyi,
+
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            21-Yurt idaresinin yönetmelikler doğrultusunda tarafımdan istediği her türlü evrakı zamanında tanzim ve hazır etmeyi,
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            <div style="margin-left:-1px;">22-Oda içerisinde toplum ahlakına uygun olmayan iskambil kağıdı, okey ve zarlı oyunların hiçbirini oynamamayı,</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            <div style="margin-left:-1px;"> 23-Öğrenci olarak bana tahsis edilen yatakhanede toplu  hareket edilen yer olması sebebiyle saat  </div>
+                                            <div style="margin-left:-1px;">24:00'dan sonra dinlenmeye çekileceğimi, uyumayacağım zamanlarda şahsi işlerim için ise    </div>
+                                            <div style="margin-left:-1px;">idarenin bana tahsis edeceği odalarda işimi halledeceğimi,</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            <div style="margin-left:-1px;">24-Gece sorumlusu veya yurt danışma görevlisinin yatılı izinli olduğum günler haricinde hergün </div>
+                                            <div style="margin-left:-1px;">saat 24:00-01:00 arasında yapacağı yoklamaya katılacağımı, beyan ve taahhüt ederim.</div>
+
+                                        </th>
+                                    </tr>
+                                </table>
+                                <div class="yazdiril" style="margin-left:1130px; margin-top:188px;"><a href="#" class="yazacak" onclick="window.print()">Yazdir</a></div>
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="mali" role="tabpanel" aria-labelledby="mali-tab">
+                            <div class="malidurum" style="background-color:burlywood">
+                                <table style="width:800px; height:250px; margin-left:160px;   margin-top:-50px;">
+                                    <tr><td colspan="3" style="color:black;"><h4><strong class="malihususlar" style="margin-left:300px; ">MALî HUSUSLAR</strong></h4></td></tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            1-Yurt ücreti ders yılı süresince belirlenmiş olup 9 ay üzerinden anlaşmaya varılır. Aylık senet
+                                            yapılır.Senetler, bankaya verilir.Taksitli ödemelerde ücret aylık olmayıp, ödeme kolaylığı sağlamak
+                                            amacıyla aylara bölünüp alınmasından ibarettir.Ör: Aylık fiyatımız 4230/9=470 TL'dir. Senetler,
+                                            <div style="margin-left:-1px;">ödenen taksitten sonra ödenen ayın senedi verilir.Ders yılı süresi içer isinde olan resmi tatillerde yurdumuz açık olup ister yurtta kalsın ister kalmasın ücret tahsil edilir.</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            2-Yurt ücretlerini Yurt idaresiyle kararlaştırılan ödeme planı doğrultusunda zamanında ödemeyi,
+                                            <div style="margin-left:-1px;">aksi durumda doğacak zararı tanzim etmeyi</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            3-Öğrenci ders yılı içinde makul bir mazeret  olmaksızın yurttan ayrılması durumunda ilgili <br />
+                                            yönetmelik hükümleri uygulanır.Eve çıkma veya KYK yurduna çıkma geçerli mazeret sayılmaz.
+                                            <div style="margin-left:-1px;">Mazeretsiz yurttan ayrılmalarda yönetmelik hükümleri uygulanır.</div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            <div style="margin-left:-1px;"> 4-Yurt aidatı ödemesi hakkında;</div>
+                                            Banka Adı              : KUVEYTTÜRK<br />
+                                            Hesap Adı Soyadı : MERKEZ SELÇUKLU<br />
+                                            IBAN No                 : TR54 0020 5000 0950 1699 6000 01              Hesap No: 9501699-1
+
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            <div style="margin-left:-1px;">  a) Yurt ücreti ödenirken; </div>
+                                            - EFT yapılacaksa; IBAN no ve Hesap adı soyadı girilir,<br />
+                                            - Bankamatikten yapılacaksa; Hesap no girilir, açıklama kısmına ad soyad yazılır <br />
+                                            ( Ör:Nuri Baş şubat taksit)
+                                            - Muhasebeye ödenecek ise; K.kartı ile, mail order ile ödeme yapılabilir.<br />
+                                            Bu işlemlerden herhangi biri ile ödeme yapıldıktan sonra muhasebeden fatura alınarak işlem tamamlanır.
+
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" style="color:black;">
+                                            Şahsıma emanet edilen demirbaş eşyayı, iyi kullanmayı, bu eşyaların herhangi birinin tahribinden, <br />
+                                            zayiinden mesul tutulmayı, yukarıda belirtilen genel malî ve özel hususlara harfiyen uymayı, aksi <br />
+                                            takdirde ilgili yönetmeliğin  disiplin hükümlerinin  tarafıma uygulanacağını ve kurum tarafından
+                                            <div style="margin-left:-1px;">hakkımda açılacak Konya Mahkeme ve İcra Dairelerinin salahiyetini kabul ve taahhüt ederim.</div>
+                                        </th>
+                                    </tr>
+                                    <tr><td colspan="3" style="color:black;"><h4><strong style="margin-left:300px;">ÖZEL ŞARTLAR</strong></h4></td></tr>
+                                    <tr>
+                                        <td colspan="3" style="color:black;">
+                                            1.Yurda kayıt döneminde yurdun fiziki mekanları, yangın kaçış yolları, yangın tahliye kapıları ve Acil
+                                            Durum toplanma merkezi yurt görevlileri tarafıma tanıtılmıştır.
+                                        </td>
+                                    </tr>
+                                    <tr style="margin-bottom:40px; margin-top:100px; ">
+                                        <td colspan="3" style="color:black; margin-bottom:100px;">
+                                            <div style="margin-left:50px; margin-top:10px;">Veli</div><div style="margin-left:340px; margin-top:-20px;"> Öğrenci</div><div style="margin-left:560px; margin-top:-15px; "> Yurt Müdürü / M. Yardımcısı</div><br />
+                                            <div style="margin-left:20px; margin-top:-24px;">   Ad - Soyad - İmza </div>  <div style="margin-left:310px; margin-top:-20px;">Ad - Soyad - İmza </div><div style="margin-left:620px; margin-top:-16px; margin-bottom:40px;"> Ad - Soyad - İmza</div>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <div class="yazdiril" style="margin-left:1130px; margin-top:17px;"><a href="#" class="yazacak" onclick="window.print()">Yazdir</a></div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <button id="yeri" type="submit" class="btn btn-info yazdiril">Öğrenci Kaydet</button>
+
+                }
+
+            </div>
+
+        </section>
+
+
+
+
+    </section>
+</div>
+
+<script src="~/Content/NiceAdmin/js/bootstrap.min.js"></script>
+<!-- page end-->
+
+<script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+
+
+
+
+@section scripts{
+    <script>
+
+
+
+    </script>
+
+
+}

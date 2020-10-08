@@ -1,0 +1,144 @@
+﻿@{
+    ViewBag.Title = "SifremiUnuttum";
+    Layout = null;
+    var gecersizguid = TempData["guidgecersiz"];
+    var uyarimailgitti = TempData["mailgitti"];
+    var mailyanlis = TempData["mailyanlis"];
+    var suresidoldu = TempData["guidsuresidoldu"];
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Giriş Yap</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/Content/Login_v12/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/css/main.css">
+    <link href="~/Content/fontawesome-free/css/all.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+</head>
+<body style="background-color:darkgreen">
+
+    <div class="limiter">
+        <div class="container">
+            <div class="wrap p-t-70 p-b-30">
+                @using (Html.BeginForm("SifreOlustur", "Kullanici", FormMethod.Post))
+                {
+                        if (gecersizguid != null)
+                        {
+                         <div class="btn-danger" style="color:#fff; font-size:20px; margin-left:350px; margin-top:50px; width:400px;">
+                             @gecersizguid
+                        </div>
+                        }
+                 
+                    
+                        if ( uyarimailgitti!= null)
+                        {
+                        <div class="btn-success" style="color:#fff; background-color:black; font-size:20px; margin-left:350px; margin-top:50px; width:400px;">
+                            <strong>  @uyarimailgitti</strong>
+                        </div>
+                        }
+                        if (mailyanlis != null)
+                        {
+                        <div class="btn-danger" style="color:#fff;font-size:20px; margin-left:350px; margin-top:50px; width:400px;">
+                            <strong> @mailyanlis</strong>
+                        </div>
+                        }
+                        if (suresidoldu != null)
+                        {
+                            <div class="btn-danger" style="color:#fff;font-size:20px; margin-left:350px; margin-top:50px; width:400px;">
+                                <strong> @suresidoldu</strong>
+                            </div>
+                        }
+
+                    <div class="">
+                        <i class="fas fa-users" style="height:120px; width:270px; margin-bottom:10px; margin-left:400px;"></i>
+                    </div>
+                    <div class="wrap validate-input m-b-10" data-validate="Username is required">
+
+                        <input class="input100" type="text" id="kullaniciadi" required name="KullaniciAdi" placeholder="Kullanıcı Adı" style="width:325px;  margin-top:-8px; margin-left:375px;" />
+                        <span class="symbol-input100">
+                            <i class="fa fa-user" style="margin-left:362px;"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-10" data-validate="Password is required">
+
+                        <input class="input100" type="text" id="soyadiniz" required name="telefonno" placeholder="Email Adresi" style="width:325px;  margin-top:-1px; margin-left:375px;">
+
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" style="margin-left:362px;"></i>
+                        </span>
+                    </div>
+
+                    <div class="container-login100-form-btn p-t-10">
+                        <button type="submit" id="anasayfa" class="login100-form-btn" style="width:400px; margin-left:-40px;">
+                            Yeni Şifre Oluştur
+                        </button>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v12/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v12/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Content/Login_v12/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v12/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v12/js/main.js"></script>
+    <script src="~/Content/fontawesome-free/js/all.js"></script>
+    <script src="~/Content/jquery-3.4.1.min.js"></script>
+</body>
+</html>
+@section scripts{
+    <script>
+    $(document).ready(function () {
+        $("#anasayfa").click(function () {
+            var kkodu = $("#kadi").val();
+            var pasword = $("#ksifre").val();
+            console.log("burdayim");
+            $.ajax({
+                type: "POST",
+                url: "/Kullanici/KullaniciGiris/",
+                content: "application/json",
+                datatype: 'json',
+                data: { KullaniciAdi: kkodu, Parola: pasword },
+                success: function (data) {
+                    console.log(data);
+
+
+
+
+                },
+                error: function (ex) {
+                    // ModalBilgilendirme(IslemSonucTurleri.Hata, data.Aciklama);
+                }
+            });
+        });
+    });
+    </script>
+}
+

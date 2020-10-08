@@ -1,0 +1,115 @@
+﻿
+@{
+    Layout = null;
+}
+
+<style>
+    #deneme {
+        background: #d21b00;
+        background: linear-gradient(top, #d21b00, #8e0700);
+        padding: 15px 25px;
+        text-decoration: none;
+        color: #fff;
+        width:210px;
+        font: bold 30px Arial, Helvetica, sans-serif;
+        border-radius: 7px;
+        text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+        border: 5px solid #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+        position: absolute;
+        left: 1100px;
+        top: 435px;
+    }
+
+        #deneme:hover {
+            background: linear-gradient(top, #8e0700, #d21b00);
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+        }
+    #deneme2 {
+        background: #d21b00;
+        background: linear-gradient(top, #d21b00, #8e0700);
+        padding: 15px 25px;
+        text-decoration: none;
+        color: #fff;
+        width:210px;
+        font: bold 30px Arial, Helvetica, sans-serif;
+        border-radius: 7px;
+        text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+        border: 5px solid #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+        position: absolute;
+        left: 1100px;
+        top: 350px;
+    }
+
+        #deneme2:hover {
+            background: linear-gradient(top, #8e0700, #d21b00);
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+        }
+    #den {
+        background: #d21b00;
+        background: linear-gradient(top, #d21b00, #8e0700);
+        padding: 15px 25px;
+        text-decoration: none;
+        color: #fff;
+        font: bold 25px Arial, Helvetica, sans-serif;
+        border-radius: 7px;
+        text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+        border: 5px solid #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+        position: absolute;
+        left: 1100px;
+        top: 270px;
+    }
+
+        #den:hover {
+            background: linear-gradient(top, #8e0700, #d21b00);
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+        }
+</style>
+<link rel="stylesheet" type="text/css" href="~/Content/yazdirma.css" media="screen, print" />
+<link href="~/Content/fontawesome-free/css/all.min.css" rel="stylesheet" />
+<script src="~/Content/fontawesome-free/js/all.min.js"></script>
+<script src="~/Content/fontawesome-free/js/fontawesome.min.js"></script>
+<div class="dene">
+    <section style="background-color:burlywood; " class="dikey">
+        <header class="panel-heading" id="baslik" style="width:800px; margin-top:15px;margin-bottom:-14px; ">
+            <div style="margin-left:350px; font-size:25px; text-transform: uppercase;">@ViewBag.yilbigisi30  @ViewBag.ayadi  AYI YEMEK LİSTESİ</div>
+        </header>
+        <a id="den" href="/AnaSayfa/Index" class="btn btn-danger btn-xs"><i class="fas fa-backward" style="margin-right:10px;"></i>Anasayfa</a>
+        <div class="panel-body" style="margin-top:3px; margin-bottom:-2px;">
+
+            <div class="form">
+                @using (Html.BeginForm("AylikListeFormuKaydet", "Yemek", FormMethod.Post))
+                {
+
+                    @Html.Raw(ViewBag.tarihler_html)
+
+                 
+                    <button id="deneme" type="submit" class="btn btn-danger btn-xs" ><i class="fas fa-save" style="margin-right:15px; width:30px; height:25px;"></i>Kaydet</button>
+                }
+                <button id="deneme2"  class="btn btn-danger btn-xs" onclick="window.print();"><i class="fas fa-print" style="margin-right:15px; width:30px; height:25px;"></i>Yazdır</button>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="~/Content/jquery-3.4.1.min.js"></script>
+@section scripts{
+    <script>
+
+
+        $(document).ready(function(){
+
+            $("#deneme").click(function(){
+                secilen.style.display = "none";
+            });
+        });
+
+ 
+
+    </script>
+}

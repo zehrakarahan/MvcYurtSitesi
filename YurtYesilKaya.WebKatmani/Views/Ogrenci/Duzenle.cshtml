@@ -1,0 +1,211 @@
+﻿@model YurtYesilKaya.WebKatmani.Models.OgrenciModel
+@{
+    ViewBag.Title = "Duzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .asagi{
+        position:absolute;
+        top:10px;
+    }
+    .yukari{
+        position:absolute;
+        top:10px;
+        left:200px;
+    }
+      .saga{
+        position:absolute;
+        top:10px;
+        left:390px;
+    }
+    .sola{
+        position:absolute;
+        top:17px;
+       
+    }
+    .ileri{
+        position:absolute;
+        top:17px;
+        left:193px;
+
+    }
+    .geri{
+        position:absolute;
+         top:17px;
+         left:386px;
+    }
+  
+</style>
+<div class="row">
+    <div class="col-lg-10">
+        <section class="panel">
+            <header class="panel-heading">
+                ÖĞRENCİ DÜZENLEME
+            </header>
+            <div class="panel-body">
+                <div class="form">
+                    <form  action="/Ogrenci/Duzenle" class="form-validate form-horizontal " method="post"  id="register_form">
+                        <div class="form-group ">
+                            
+                                <label for="fullname" class="control-label col-lg-2">Tc Kimlik/Adı Soyadı <span class="required">*</span></label>
+                                <div class="col-lg-10">
+                                    @Html.TextBoxFor(model => model.Ogrenci.Ogrencitckimlikno, new { @required = "required", @class = "form-control", type = "number", style = "width:350px; height:34px; color:black; border: 1px solid;" })
+                                    @Html.TextBoxFor(model => model.Ogrenci.ogrenciadisoyadi, new { @required = "required", @class = "form-control", type = "text", style = "width:350px; margin-left:351px; height:34px; margin-top:-34px; color:black; border: 1px solid;" })
+                                </div>
+                            </div>
+                        <div class="form-group ">
+                            <label for="address" class="control-label col-lg-2">Tc Kimlik/Adı Soyadı<span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                @Html.TextBoxFor(model => model.Ogrenci.BabaAdi, new { @required = "required", @class = "form-control", type = "text", style = "width:350px;height:34px; color:black; border: 1px solid;" })
+                                @Html.TextBoxFor(model => model.Ogrenci.AnneAdi, new { @required = "required", @class = "form-control", type = "text", style = "width:350px; margin-left:351px; margin-top:-34px; height:34px;color:black; border: 1px solid;" })
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="username" class="control-label col-lg-2">Dogum Yeri/Dogum Yılı/Okuduğu Okul<span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                @Html.TextBoxFor(model => model.Ogrenci.DogumYeri, new { @required = "required", @class = "form-control", type = "text", style = "width:200px; height:34px; color:black; border: 1px solid;" })
+                                @Html.TextBoxFor(model => model.Ogrenci.dogumyili, new { @required = "required", @class = "form-control", type = "year", style = "width:100px; height:34px; margin-top:-34px; margin-left:201px; color:black; border: 1px solid;" })
+                                @Html.TextBoxFor(model => model.Ogrenci.OkuduguOkul, new { @required = "required", type = "text", @class = "form-control", style = "width:400px; color:black; margin-top:-34px; margin-left:302px; height:34px; border: 1px solid;" })
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="confirm_password" class="control-label col-lg-2">Kayıt Tarihi/Ayrılma Tarihi<span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                @Html.EditorFor(m => m.Ogrenci.Yurttakalmayabasladigitarih, new { @required = "required", @class = "form-control", @style = "height:34px; color:black; border:1px solid;", @type="date" })
+                                @Html.EditorFor(m => m.Ogrenci.YurtAyrildigiTarih.Value.Date, new { @required = "required", @class = "form-control", @style = "height:34px; margin-top:-34px; margin-left:351px; color:black; border:1px solid;", @type = "date" })
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="password" class="control-label col-lg-2">Bölüm/Sınıf/Öğrenim şekli <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                               @Html.TextBoxFor(m => m.Ogrenci.bolumadi, new { @required = "required", @class = "form-control", @style = "width:450px; color:black; height:34px;  border:1px solid; margin-top:0px;" })
+                            @Html.TextBoxFor(m => m.Ogrenci.Sinifadi, new { @required = "required", @class = "form-control", @style = "width:95px; margin-left:452px; height:34px; margin-top:-34px; color:black; border:1px solid;" })
+
+                            @Html.TextBoxFor(m => m.Ogrenci.Ogrenimturu, new { @required = "required", @class = "form-control", @style = "width:150px; height:34px; margin-top:-34px; margin-left:550px; color:black; border:1px solid;" })
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="confirm_password" class="control-label col-lg-2"> Barınma Türü/Oda No <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                @Html.TextBoxFor(m => m.Ogrenci.BarinmaTuru, new { @required = "required", @class = "form-control", @style = "width:350px; height:34px; color:black; border:1px solid;" })
+                                @Html.TextBoxFor(m => m.OdaBilgisi.OdaNo, new { @required = "required", @class = "form-control", @style = "width:350px; height:34px; margin-top:-34px; margin-left:351px; color:black; border:1px solid;" })
+                            </div>
+                        </div>
+                        
+                             
+                                @Html.HiddenFor(model=>model.Ogrenci.VeliBilgileriId)
+                                @Html.HiddenFor(model=>model.Ogrenci.OdaBilgileriId)
+                                @Html.HiddenFor(model=>model.Ogrenci.TaksitOdemeId)
+                                @Html.HiddenFor(model=>model.Ogrenci.OgrenciResmi)
+                                
+                                 
+                       
+                        <div class="form-group ">
+                            <label for="email" class="control-label col-lg-2">Öğrencinin Ev Adresi <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                               @Html.TextAreaFor(model => model.Ogrenci.OgrenciAdress, new { @required = "required", @class = "form-control", style = "width:700px; height:34px; color:black; border: 1px solid; ", type = "text" })
+                            </div>
+                        </div>
+                        
+                        <div class="form-group ">
+                            <label for="email" class="control-label col-lg-2">Öğrenci Cep/Acil D.Telefon <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                @Html.TextBoxFor(model => model.Ogrenci.Ceptelefonu, new { @required = "required", @class = "form-control", style = "width:350px;height:34px; color:black; border: 1px solid; ", type = "tel" })
+                                @Html.TextBoxFor(model => model.Ogrenci.AcilDurumCep, new { @required = "required", @class = "form-control", style = "width:350px;height:34px; margin-top:-34px; margin-left:351px; color:black; border: 1px solid;  ", type = "tel" })
+                            </div>
+                        </div>
+                        
+                        <div class="form-group ">
+                            <label for="email" class="control-label col-lg-2">Veli T.C Kimlik/Adı Soyadı <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                @Html.TextBoxFor(model => model.VeliBilgileri.TckimlikNo, new { @required = "required", @class = "form-control", style = "width:350px;height:34px; color:black; border: 1px solid; ", type = "number" })
+                                @Html.TextBoxFor(model => model.VeliBilgileri.VeliAdiSoyadi, new { @required = "required", @class = "form-control", style = "width:350px; height:34px; margin-left:351px; margin-top:-34px; color:black; border: 1px solid;  ", type = "text" })
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="email" class="control-label col-lg-2">Mesleği/Sosyal Güvencesi <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                @Html.TextBoxFor(model => model.VeliBilgileri.velimeslegi, new { @required = "required", @class = "form-control", style = "width:350px;height:34px; color:black; border: 1px solid;  ", type = "text" })
+                                @Html.TextBoxFor(model => model.VeliBilgileri.SosyalGuvencesi, new { @required = "required", @class = "form-control", style = "width:350px; height:34px; margin-left:351px; margin-top:-34px; color:black; border: 1px solid;  ", type = "text" })
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="email" class="control-label col-lg-2">Ev/Cep/Email Adresi <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                @Html.TextBoxFor(model => model.VeliBilgileri.telefonno, new { @required = "required", @class = "form-control", style = "width:350px; height:34px; color:black; border: 1px solid;  ", type = "tel" })
+                                @Html.TextBoxFor(model => model.VeliBilgileri.mailadresi, new { @required = "required", @class = "form-control", style = "width:350px; height:34px; margin-left:351px; margin-top:-34px; color:black; border: 1px solid;  ", type = "email" })
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="email" class="control-label col-lg-2">İlandaki yıllık ücret/Yazıyla Tutar<span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                @Html.EditorFor(model => model.Ogrenci.ilanedilenyillikmiktar, new { @required = "required", @class = "form-control", style = "width:350px; height:34px;  margin-top:34px; color:black; border: 1px solid;", type = "number" })
+                                @Html.TextBoxFor(model => model.Ogrenci.ilandabelirtilenYaziileTutar, new { @required = "required", @class = "form-control", style = "width:350px; height:34px; margin-left:351px; margin-top:-34px; color:black; border: 1px solid;", type = "text" })
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="email" class="control-label col-lg-2">kayıt edinilen ücret/Yazıyla Tutar <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                @Html.EditorFor(model => model.Ogrenci.Ogrencininkayitedildigimiktar, new { @required = "required", @class = "form-control", style = "width:350px; height:34px;  margin-top:34px; color:black; border: 1px solid;", type = "number" })
+                                @Html.TextBoxFor(model => model.Ogrenci.ogrencikayitedildigiyaziletutar, new { @required = "required", @class = "form-control", style = "width:350px; height:34px; margin-left:351px; margin-top:-34px; color:black; border: 1px solid; ", type = "text" })
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="email" class="control-label col-lg-2">Ödeme şekli/Taksit Ödeme Türü <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                @Html.RadioButtonFor(m => m.Ogrenci.OdemeSekli, "Pesin", new { @class = "form-control", style = "width:40px; height:22px; margin-top:9px;" })<div style="margin-top:-22px; margin-left:35px;">Pesin</div>
+
+                                @Html.RadioButtonFor(m => m.Ogrenci.OdemeSekli, "Taksit", new { @class = "form-control", style = "width:40px; height:22px; margin-left:160px; margin-top:-21px; " })<div style="margin-top:-22px; margin-left:193px;">Taksit </div>
+                                @Html.TextBoxFor(model => model.TaksitOdeme.OdemeTuru, new { @required = "required", @class = "form-control", @style = "width:350px; margin-top:-27px; height:34px; margin-left:351px; color:black; border:1px solid;" })
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="email" class="control-label col-lg-2">Taksit başlangıcı<br />Peşinat Miktarı <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                @Html.TextBoxFor(model => model.TaksitOdeme.taksitodenecegitarihi, new { @required = "required", style = "width:350px; height:34px; color:black; border: 1px solid; font-size:15px; ", @class = "form-control", type = "date" })
+                                @Html.TextBoxFor(model => model.Ogrenci.pesinatmiktari, new { @required = "required", style = "margin-left:351px; width:350px; height:34px; margin-top:-34px; color:black;border: 1px solid; ", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="email" class="control-label col-lg-2">Kat Bilgisi/Depozito Miktarı <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                @Html.TextBoxFor(model => model.Ogrenci.Katbilgisi, new { @required = "required", @class = "form-control", @style = "width:350px; margin-top:0px; margin-left:1px; height:34px; font-size:15px; color:black; border:1px solid;" })
+                                @Html.TextBoxFor(model => model.Ogrenci.depozitomiktari, new { @required = "required", @class = "form-control", style = "margin-left:351px; width:350px;color:black; border:1px solid; height:34px; margin-top:-34px; ", type = "number" })
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="email" class="control-label col-lg-2">indirim çeşidi/indirim Miktarı<span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                @Html.TextBoxFor(m => m.indirimcesidi, new { @class = "form-control", @style = "width:350px; height:34px; color:black; border: 1px solid;" })
+                                @Html.TextBoxFor(m => m.Ogrenci.Ozeldurumindirimmiktari, new { @style = "width:349px; height:34px; color:black; border:1px solid; margin-left:351px; margin-top:-34px;", @class = "form-control", type = "number" })
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="email" class="control-label col-lg-2">Taahhüt Edilen Yatakhane Kontenjanı <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                <div class="asagi"> @Html.RadioButtonFor(model => model.OdaBilgisi.odakisisayisi, "2 Kişilik yatakhane", new {@style = "width:20px; height:20px;margin-top:7px; margin-right:3px;" })2 Kişilik yatakhane</div>
+                                <div class="yukari">@Html.RadioButtonFor(model => model.OdaBilgisi.odakisisayisi, "5 Kişilik yatakhane", new {  @style = "width:20px; height:20px;margin-left:25px; margin-top:7px; margin-right:3px; " }) 5 Kişilik yatakhane</div> 
+                                <div class="saga">@Html.RadioButtonFor(model => model.OdaBilgisi.odakisisayisi, "4 Kişilik banyolu yatakhane", new { @style = "width:20px; height:20px;margin-left:35px; margin-top:7px; margin-right:3px;" })4 Kişilik banyolu yatakhane</div><br />
+                                <div class="sola">@Html.RadioButtonFor(model => model.OdaBilgisi.odakisisayisi, "1 Kişilik suit daire", new { @style = "width:20px; height:20px; margin-top:27px; margin-right:3px;" })1 Kişilik süit daire</div>
+                                <div class="ileri">@Html.RadioButtonFor(model => model.OdaBilgisi.odakisisayisi, "4 Kişilik banyosuz yatakhane", new { @style = "width:20px; height:20px; margin-left:30px; margin-top:27px; margin-right:3px;" })4 Kişilik banyosuz yatakhane</div>
+                                <div class="geri">@Html.RadioButtonFor(model => model.OdaBilgisi.odakisisayisi, "3 Kişilik süit daire", new {  @style = "width:20px; height:20px;margin-left:38px; margin-top:27px; margin-right:3px;" })3 Kişilik süit daire</div>
+                                        </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button class="btn btn-primary" id="kaydet" type="submit">Kaydet</button>
+                                <a href="/Ogrenci/OgrenciListele" class="btn btn-default">Kapat</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@section scripts{
+
+  
+}

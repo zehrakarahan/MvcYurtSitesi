@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "KurumBilgisiEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Kurum Bilgileri Ekleme
+            </header>
+            <div class="panel-body">
+                <div class="form">
+                    <form method="post" action="/KurumveTaslaklar/KurumBilgisiEkle" class="form-validate form-horizontal " id="register_form">
+                        <div class="form-group ">
+                            <label for="fullname" class="control-label col-lg-2">KurumKodu <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                <input class="form-control" id="kurumkodu" name="KurumCode" type="number" />
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="address" class="control-label col-lg-2">KurumAdı <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                <input class="form-control" id="kurumadi" name="KurumAdi" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="username" class="control-label col-lg-2">Kurum Kurucu Adı <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                <input class="form-control " id="kurucuadi" name="kurucuadi" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="password" class="control-label col-lg-2">Kurucu Temsilci Adı <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                <input class="form-control " id="temcilciadi" name="KurucuTemsilciAdi" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="confirm_password" class="control-label col-lg-2">KurumAdresi <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                <input class="form-control " id="kurumadresi" name="KurumAdresi" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="email" class="control-label col-lg-2">Kurum Telefon Numarası <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                <input class="form-control " id="telefon" name="KurumTelefon" type="number" />
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="email" class="control-label col-lg-2">Kurum Müdür Adı <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                <input class="form-control " id="muduradi" name="MudurAdi" type="text" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button class="btn btn-primary" id="kaydet" type="submit">Kaydet</button>
+                                <a href="/Anasayfa/Index" class="btn btn-default">Kapat</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- page end-->
+<script src="~/Content/jquery-3.4.1.min.js"></script>
+@* @section scripts{
+        <script>
+            var kkodu = $("#kurumkodu").val();
+            var kadi = $("#kurumadi").val();
+            var kurucuadi = $("#kurucuadi").val();
+            var temcilciadi=$("#")
+            $(document).ready(function () {
+                $("#kaydet").click(function () {
+                    alert("merhaba dunya");
+                });
+
+            });
+        </script>
+    }  *@

@@ -1,0 +1,19 @@
+﻿@model  IEnumerable<YurtYesilKaya.Entity.Entity.OgrenciHareket>
+
+@foreach (var item in Model)
+{
+    <div class="post-main">
+        <ul>
+            <li>
+                <b>Ogrenci Adi Soyadi</b>@item.kalanborc
+            </li>
+            <li>
+                <b>Adresi</b>@item.odenenborc
+            </li>
+            <li>
+                <b>Bolumu</b>@item.Ogrenci.ogrenciadisoyadi
+            </li>
+        </ul>
+    </div>
+}
+

@@ -1,0 +1,25 @@
+﻿@model YurtYesilKaya.WebUI.Models.OgrenciViewModel
+@{
+    ViewBag.Title = "deneme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@(Html
+    .Grid(Model.OgrenciListesi)
+    .Build(columns =>
+    {
+        
+        //Model.
+        columns.Add(model => model.Ogrenci.ogrenciadisoyadi).Titled("Adi Soyadi");
+        columns.Add(model => model.OdaBilgisi.OdaNo).Titled("Adi Soyadi");
+        columns.Add(model => model.Ogrenci.ogrenciadisoyadi).Titled("Adi Soyadi");
+        columns.Add(model => model.Ogrenci.ogrenciadisoyadi).Titled("Adi Soyadi");
+
+    })
+    .Empty("No data found")
+    .Filterable()
+    .Sortable()
+    .Pageable()
+)
+//bunu mu ıstıyorsun 
+

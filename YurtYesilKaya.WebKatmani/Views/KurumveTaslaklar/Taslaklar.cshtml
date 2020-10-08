@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewBag.Title = "Taslaklar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var veriler = (YurtYesilKaya.WebKatmani.Models.OgrenciViewModel)ViewBag.modeldekiler2;
+    List<YurtYesilKaya.Entity.Entity.Ogrenci> listeler = ViewBag.ogrencilistesi;
+
+
+}
+<style>
+    #degis{
+        position:absolute;
+        margin-top:2px;
+        margin-right:10px;
+    }
+      #exampleModal2 {
+        z-index: 9999999;
+    }
+ 
+</style>
+
+<link href="~/Content/beskisi.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link href="~/Content/fontawesome-free/css/fontawesome.min.css" rel="stylesheet" />
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-html5-1.3.1/b-print-1.3.1/r-2.1.1/rg-1.0.0/datatables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-html5-1.3.1/b-print-1.3.1/r-2.1.1/rg-1.0.0/datatables.min.css" />
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+@section body{
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="position:absolute; left:400px;">
+        <div class="modal-content" style="background-color:#b61d1d">
+            <div class="modal-header" style="height:75px; background-color:#b61d1d">
+                <h5 class="modal-title" id="exampleModalLabel" style="margin-left:10px;  font-size:20px; color:white">LÜTFEN KUTULARI ODA SAYISINA GÖRE DOLDURUNUZ VEYA AYNI ODADAN SEÇİNİZ </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:black">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="background-color:#b61d1d">
+                <i class="fas fa-bell" style="width:65px; height:65px; margin-left:250px;"></i>
+            </div>
+            <div class="modal-footer" style="background-color:#b61d1d">
+
+                <button type="button" class="btn btn-danger" style="background-color:#b61d1d" data-dismiss="modal">Tamam</button>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+<div class="row">
+    <button class="btn btn-danger" id="goste2" data-toggle="modal" data-target="#exampleModal" style="position:absolute;left:200px; width:550px; height:180px; top:77px;">
+        <div class="col-lg-6" style="margin-top:-3px; width:520px; height:180px;">
+            <div class="info-box dark-heading-bg">
+                <i class="fas fa-file-invoice" style="width:25px; height:25px; margin-bottom:0px;"></i>
+                <div class="count"  style="margin-top:-3px;">2 Kişilik Oda</div>
+                <div><strong style="color:white; margin-left:1px; font-size:15px;">Kapı Sağa Doğru Açılan</strong> </div>
+                <div><strong style="color:white; margin-left:1px; font-size:15px;">Kapı Sola Doğru Açılan</strong> </div>
+            </div>
+            <!--/.info-box-->
+        </div>
+        </button>
+        <!--/.col-->
+        <button class="btn btn-danger" id="goste5" data-toggle="modal" data-target="#exampleModal" style="position:absolute;left:790px; width:550px; height:180px; top:77px;">
+            <div class="col-lg-6" style="margin-top:-3px; width:520px;">
+                <div class="info-box dark-heading-bg">
+                    <i class="fas fa-file-invoice" style="width:25px; height:25px; margin-bottom:0px;"></i>
+                    <div class="count" style="margin-top:-3px;">5 Kişilik  Oda</div>
+                    <div><strong style="color:white; margin-left:1px; font-size:15px;">Kapı Sağa Doğru Açılan</strong> </div>
+                    <div><strong style="color:white; margin-left:1px; font-size:15px;">Kapı Sola Doğru Açılan</strong> </div>
+                </div>
+                <!--/.info-box-->
+                <!--/.col-->
+            </div>
+        </button>
+</div>
+<div class="row">
+    <button class="btn btn-danger" id="goste4kis" data-toggle="modal" data-target="#exampleModal" style="position:absolute;left:200px; width:550px; height:180px; top:267px;">
+        <div class="col-lg-6" style="margin-top:-3px; width:520px; height:180px;">
+            <div class="info-box dark-heading-bg">
+                <i class="fas fa-file-invoice" style="width:25px; height:25px; margin-bottom:0px;"></i>
+                <div class="count" style="margin-top:-3px;">4 Kişilik Banyolu Oda</div>
+                <div><strong style="color:white; margin-left:1px; font-size:15px;">Kapı Sağa Doğru Açılan</strong> </div>
+                <div><strong style="color:white; margin-left:1px; font-size:15px;">Kapı Sola Doğru Açılan</strong> </div>
+            </div>
+            <!--/.info-box-->
+        </div>
+    </button>
+    <!--/.col-->
+    <button class="btn btn-danger" id="goste4kisi" data-toggle="modal" data-target="#exampleModal" style="position:absolute;left:790px; width:550px; height:180px; top:267px;">
+        <div class="col-lg-6" style="margin-top:-3px; width:520px;">
+            <div class="info-box dark-heading-bg">
+                <i class="fas fa-file-invoice" style="width:25px; height:25px; margin-bottom:0px;"></i>
+                <div class="count" style="margin-top:-3px;">4 Kişilik Banyosuz Oda</div>
+                <div><strong style="color:white; margin-left:1px; font-size:15px;">Kapı Sağa Doğru Açılan</strong> </div>
+                <div><strong style="color:white; margin-left:1px; font-size:15px;">Kapı Sola Doğru Açılan</strong> </div>
+            </div>
+            <!--/.info-box-->
+            <!--/.col-->
+        </div>
+    </button>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-left:-100px; position:absolute; left:200px; top:-80px; right:-100px; width:1200px; top:0px; height:650px;">
+    <div class="modal-dialog" role="document" style="position:absolute; left:700px; height:400px; right:0px; top:-60px;" >
+        <div class="modal-content" style="width:900px; height:710px; margin-left:-750px; position:absolute; left:200px;">
+            <div class="modal-header" style="height:40px;" >
+                <h5 class="modal-title" id="exampleModalLabel" style="margin-left:350px;">Öğrenci Seçimi Yap</h5>
+                <button type="submit" class="btn-danger rounded" data-toggle="modal" data-target="#exampleModal2" id="secilenlistele" style="width:150px; height:40px; margin-left:-12px; position:absolute; top:0px; ">
+                    Seçilenleri Listele
+                </button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-left:200px; margin-top:-30px;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="width:900px; height:300px;">
+                <table id="myTablete" class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Seçiniz</th>
+                            <th style="width:30px;">Adı Soyadı</th>
+                            <th>Oda Kişi Sayısı</th>
+                            <th>Kat Bilgisi</th>
+                            <th>Banyo Durumu</th>
+                            <th>Oda no</th>
+                            <th>Bölümü</th>
+                            <th>Sınıfı</th>
+                            
+                           
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in veriler.OgrenciListesi)
+                        {
+                            <tr>
+
+                                <td><input type="checkbox" data-id="@item.Ogrenci.Id" data-odano="@item.OdaBilgisi.OdaNo" name="ogrencid" style="width:20px; height:20px;" /></td>
+                                <td>@item.Ogrenci.ogrenciadisoyadi</td>
+                                <td>@item.OdaBilgisi.odakisisayisi</td>
+                                <td>@item.Ogrenci.Katbilgisi</td>
+                                <td>@item.Ogrenci.banyovarmi</td>
+                                 <td>@item.OdaBilgisi.OdaNo</td>
+                                <td>@item.Ogrenci.bolumadi</td>
+                                <td>@item.Ogrenci.Sinifadi</td>
+                                
+                                
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <script>
+                    $('#myTablete').DataTable();
+                </script>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/Content/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="~/Content/jquery-3.4.1.min.js"></script>
+<script src="~/Content/fontawesome-free/js/fontawesome.js"></script>
+<script src="~/Content/fontawesome-free/js/solid.min.js"></script>
+<script src="~/Content/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/Content/fontawesome-free/js/fontawesome.min.js"></script>
+<link href="~/Content/bower_components/Flot/examples/shared/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/bower_components/jquery-ui/themes/base/jquery-ui.css" rel="stylesheet" />
+<script src="~/Content/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="~/Content/bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="~/Content/taslaklar.js"></script>

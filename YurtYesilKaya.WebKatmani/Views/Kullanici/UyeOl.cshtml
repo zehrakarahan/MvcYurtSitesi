@@ -1,0 +1,169 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Üye ol</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/Content/Login_v12/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v12/css/main.css">
+    <link href="~/Content/fontawesome-free/css/all.css" rel="stylesheet" />
+    <style>
+        #adiniz{
+            position:absolute;
+            left:-450px;
+            top:80px;
+        }
+        #adyildiz{
+            position:absolute;
+            left:-295px;
+            top:100px; 
+        }
+        #soyadiniz{
+            position:absolute;
+            left:-120px;
+            top:70px;
+        }
+        #soyadyildiz{
+             position:absolute;
+            left:-310px;
+            top:90px;
+        }
+        #kullaniciadi{
+            position:absolute;
+            left:-895px;
+            top:140px;
+
+        }
+        #kullaniciyildiz{
+            position:absolute;
+            left:-740px;
+            top:160px;
+        }
+        #sifre{
+            position:absolute;
+            left:-565px;
+            top:132px;
+        }
+        #sifreyildiz{
+            position:absolute;
+            left:-755px;
+            top:150px;
+        }
+    </style>
+    <!--===============================================================================================-->
+</head>
+
+<body style="background-color:darkgreen">
+
+    <div class="limiter">
+        <div class="container">
+            <div class="wrap p-t-70 p-b-30">
+
+                <form class="login100-form validate-form" action="/Kullanici/UyeOl" method="post">
+
+                    <div class="login">
+                        <i class="fas fa-user-plus" style="height:120px; width:220px; margin-bottom:1px; margin-left:1px; "></i>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="wrap-input100 validate-input m-b-10" data-validate="Username is required">
+                                <input class="input100" type="text" id="adiniz" required name="AdiSoyadi" placeholder="Adı Soyadı" style="width:325px;  margin-top:-23px;">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                    <i class="fas fa-star" id="adyildiz" style="margin-left:-150px; margin-top:-35px;color:darkred"></i>
+
+                                </span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-10" data-validate="Username is required">
+                                <input class="input100" type="text" id="soyadiniz" required name="telefonno" placeholder="Email Adresi" style="width:325px;  margin-top:-23px;">
+
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                    <i class="fas fa-star" id="soyadyildiz" style="color:darkred; margin-left:198px; margin-top:-35px;"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="wrap-input100 validate-input m-b-10" data-validate="Username is required">
+                                <input class="input100" type="text" id="kullaniciadi" required name="KullaniciAdi" placeholder="Kullanıcı Adı" style="width:325px;  margin-top:-23px;">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                    <i class="fas fa-star" id="kullaniciyildiz" style="margin-left:-150px; margin-top:-35px;color:darkred"></i>
+
+                                </span>
+                            </div>
+                            <div class="wrap-input100 validate-input m-b-10" data-validate="Username is required">
+                                <input class="input100" type="password" id="sifre" required name="Parola"  placeholder="Şifre" style="width:325px;  margin-top:-23px;">
+
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                    <i class="fas fa-star" id="sifreyildiz" style="color:darkred; margin-left:198px; margin-top:-35px;"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                   
+
+                    <div class="container-login100-form-btn p-t-10">
+                        <button type="submit" id="uyeol" class="login100-form-btn" style="width:670px; margin-top:50px; margin-right:40px;">
+                            Üye Ol
+                        </button>
+                    </div>
+                    <div class="text-center w-full p-t-20 p-b-70">
+                        <a href="/Kullanici/KullaniciGiris" class="txt1">
+                           Zaten Üyeyim
+                        </a>
+                    </div>
+                    <div class="text-center w-full p-t-15 p-b-60">
+                        <a href="#" class="txt1">
+                            Yıldızlı Alanlar Zorunludur!!!
+                        </a>
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v12/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v12/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Content/Login_v12/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v12/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v12/js/main.js"></script>
+    <script src="~/Content/fontawesome-free/js/all.js"></script>
+</body>
+</html>

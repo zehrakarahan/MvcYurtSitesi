@@ -1,0 +1,64 @@
+﻿@model YurtYesilKaya.WebKatmani.Models.DevamsizlikViewModel
+@{
+    ViewBag.Title = "YoklamaListesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-html5-1.3.1/b-print-1.3.1/r-2.1.1/rg-1.0.0/datatables.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-html5-1.3.1/b-print-1.3.1/r-2.1.1/rg-1.0.0/datatables.min.js"></script>
+<table id="myTablete" class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Seçiniz</th>
+            <th>Adı Soyadı</th>
+            <th>TcKimlikNo</th>
+            <th>Bölümü</th>
+            <th>Devamsızlık Sayısı</th>
+            <th>Kat Bilgisi</th>
+            <th>Sinif</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.DevamsizlikListesi)
+        {
+            <tr>
+
+                <td><a href="/Ogrenci/BakiyeBilgileri/@item.Ogrenci.Id"><i class="fas fa-search"></i></a></td>
+                <td>@item.Ogrenci.ogrenciadisoyadi</td>
+                <td>@item.Ogrenci.Ogrencitckimlikno</td>
+                <td>@item.Ogrenci.bolumadi</td>
+                <td>@item.DevamsizlikSayisi.Devamsizliksayi</td>
+                <td>@item.Ogrenci.Katbilgisi</td>
+                <td>@item.Ogrenci.Sinifadi</td>
+              
+
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
+<script>
+        $('#myTablete').DataTable();
+</script>
+<script src="~/Content/jquery-3.4.1.min.js"></script>
+@section scripts{
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $("#myInput").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+
+            });
+
+    </script>
+
+}
+

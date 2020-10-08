@@ -1,0 +1,128 @@
+﻿@model YurtYesilKaya.WebKatmani.Models.veriler
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    #ileri {
+        position: absolute;
+        left: 675px;
+        width: 1190px;
+    }
+</style>
+
+
+<!--Modal: modalPush-->
+<div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-info" role="document">
+        <!--Content-->
+        <div class="modal-content text-center">
+
+            @using (Html.BeginForm("BakiyeTanimlama", "Ogrenci", FormMethod.Post))
+            {
+                <div class="modal-header d-flex justify-content-center">
+                    <p class="heading">Merhaba Hoşgeldiniz</p>
+                </div>
+
+            <!--Body-->
+                <div class="modal-body">
+
+                    <i class="fas fa-bell fa-4x animated rotateIn mb-4"></i>
+
+                    <p>Öğrenci Adı Soyadını Giriniz:</p>
+                    <div>@Html.TextBoxFor(model => model.OgrenciAdiSoyadi)</div>
+
+                </div>
+
+            <!--Footer-->
+                <div class="modal-footer flex-center">
+                    <button id="deneme" type="submit" class="btn btn-info">Listeye Git</button>
+                    <a class="btn btn-danger" data-dismiss="modal">Kapat</a>
+                </div>
+            }
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<div class="row">
+    <a href="/Ogrenci/OgrenciTanimlama">
+        <div class="col-lg-5">
+            <div class="info-box dark-heading-bg">
+                <i class="fas fa-user-plus"></i>
+                <div class="count">Öğrenci Tanımla</div>
+                <div class="title">6.674</div>
+            </div>
+            <!--/.info-box-->
+        </div>
+    </a>
+    <!--/.col-->
+    <a href="/Ogrenci/OgrenciListele">
+        <div class="col-lg-6">
+            <div class="info-box dark-heading-bg">
+                <i class="fas fa-users"></i>
+                <div class="count">Öğrenci Listesi</div>
+                <div class="title">7.538</div>
+            </div>
+            <!--/.info-box-->
+            <!--/.col-->
+        </div>
+    </a>
+</div>
+<div class="row">
+    <a href="/Ogrenci/BakiyeTanimlama" >
+        <div class="col-lg-5">
+            <div class="info-box dark-heading-bg">
+                <i class="fas fa-file-invoice"></i>
+                <div class="count">Bakiye Giriş</div>
+                <div class="title">4.362</div>
+            </div>
+            <!--/.info-box-->
+        </div>
+        <!--/.col-->
+        </a>
+
+        <a href="/Ogrenci/BakiyeListesi" >
+            <div class="col-lg-6">
+                <div class="info-box dark-heading-bg">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <div class="count">Bakiye Listesi</div>
+                    <div class="title">1.426</div>
+                </div>
+                <!--/.info-box-->
+            </div>
+            <!--/.col-->
+        </a>
+
+</div>
+<div class="row">
+    <a href="/Ogrenci/MuracaatFormu">
+        <div class="col-lg-5">
+            <div class="info-box dark-heading-bg">
+                <i class="fab fa-battle-net"></i>
+                <div class="count">Müracat Formu</div>
+                <div class="title">4.362</div>
+            </div>
+            <!--/.info-box-->
+        </div>
+        <!--/.col-->
+    </a>
+
+    <a href="/Ogrenci/Ogrencikametbelgesi">
+        <div class="col-lg-6">
+            <div class="info-box dark-heading-bg">
+                <i class="fas fa-diagnoses"></i>
+                <div class="count">Öğrenci İkamet Belgesi</div>
+                <div class="title">1.426</div>
+            </div>
+            <!--/.info-box-->
+        </div>
+        <!--/.col-->
+    </a>
+
+</div>
+
+
+
+
+

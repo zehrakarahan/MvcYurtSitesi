@@ -1,0 +1,142 @@
+﻿@model YurtYesilKaya.Entity.Entity.MuracatFormu
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="~/Content/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <script src="~/Content/fontawesome-free/js/all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/muracatyazdir.css" media="screen, print" />
+    <style>
+        #deneme2 {
+            background: #d21b00;
+            background: linear-gradient(top, #d21b00, #8e0700);
+            padding: 20px 25px;
+            text-decoration: none;
+            color: #fff;
+            width: 210px;
+            font: bold 30px Arial, Helvetica, sans-serif;
+            border-radius: 7px;
+            text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+            border: 5px solid #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+            position: absolute;
+            width: 200px;
+            height: 80px;
+            left: 95%;
+            top: 27%;
+        }
+
+            #deneme2:hover {
+                background: linear-gradient(top, #8e0700, #d21b00);
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+                box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+            }
+              #den2 {
+            background: #d21b00;
+            background: linear-gradient(top, #d21b00, #8e0700);
+            padding: 15px 35px;
+            text-decoration: none;
+            color: #fff;
+            font: bold 25px Arial, Helvetica, sans-serif;
+            border-radius: 7px;
+            text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+            border: 5px solid #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+            width: 200px;
+            position: absolute;
+            left: 95%;
+            top: 37%;
+        }
+
+            #den2:hover {
+                background: linear-gradient(top, #8e0700, #d21b00);
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+                box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+            }
+
+        #den {
+            background: #d21b00;
+            background: linear-gradient(top, #d21b00, #8e0700);
+            padding: 15px 35px;
+            text-decoration: none;
+            color: #fff;
+            font: bold 25px Arial, Helvetica, sans-serif;
+            border-radius: 7px;
+            text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+            border: 5px solid #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+            width: 200px;
+            position: absolute;
+            left: 95%;
+            top: 15%;
+        }
+
+            #den:hover {
+                background: linear-gradient(top, #8e0700, #d21b00);
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+                box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
+            }
+    </style>
+</head>
+<body>
+    <div class="col-lg-10">
+
+        <div id="deneme2" onclick="window.print()" class="btn btn-danger btn-xs"><i class="fas fa-print" style="margin-right:3px;"></i> Yazdır</div>
+        <a id="den" href="/AnaSayfa/Index" class="btn btn-danger btn-xs"><i class="fas fa-backward" style="margin-right:3px;"></i> Anasayfa</a>
+        <a id="den2" href="/Ogrenci/Belgedegistir" class="btn btn-danger btn-xs"><i class="fas fa-edit" style="margin-right:3px;"></i>Belge Düzenle</a>
+
+        <div id="divYazdir">
+            <div style="position:absolute;left:80%; margin-top:40px;" colspan="4"><input type="date" style="border-style:none;" /></div><br />
+            <img src="~/Content/yesilkaya.png" alt="yesilkaya" id="resim" style="position:relative; left:235px; bottom:-65px; " />
+            <center style="margin-top:60px;">
+
+
+                <h5 class="col-md-10" style="color:black; font-weight:500;">MERKEZ SELÇUKLU HİZMET VE EĞİTİM </h5>
+                <h5 class="col-md-10" style="color:black; margin-top:-12px;font-weight:500; ">ÖZEL NİYAZİ VE MUHİBE YEŞİLKAYA YÜKSEKÖĞRENİM ERKEK ÖĞRENCİ YURDU</h5>
+                <h5 class="col-md-10" style="color:black; margin-top:-12px;font-weight:500; ">
+                    <input placeholder="......." style="border-style:none;width:50px;" />/<input placeholder="......" style="border-style:none;width:50px;" /> YILI MÜRACAT FORMU<br />
+
+                </h5>
+            </center><br /><br />
+            <img src="~/Content/merkezsev.png" alt="merkez" style="position:relative; left:70%; top:-180px;" />
+
+            <div style="position:absolute;left:20%" colspan="4"><strong>ÖĞRENCİNİN;</strong></div><br /><br />
+            <div style="position:absolute;left:20%; float:left;">Adı Soyadı:<input placeholder="Adınızı Giriniz" style="border-style:none; " /></div>
+            <div style="position:absolute;right:30%; float:left;">T.C. No:<input placeholder="TCKimlik Giriniz" style="border-style:none; " /> </div><br /><br />
+            <div style="position:absolute;left:20%; float:left;">Fakülte/Bölüm:<input placeholder="Fakülte Girin" style="border-style:none;width:100px; " />/<input placeholder="Bölüm Girin" style="border-style:none;width:100px; " /> </div>
+            <div style="position:absolute;right:37%; float:left;">Cep No:<input placeholder="Cep Girin" style="border-style:none;width:100px; " /> </div><br /><br />
+            <div style="position:absolute;left:20%; float:left;">Sınıfı:<input placeholder="Sınıf Girin" style="border-style:none;width:100px; " /> </div>
+            <div style="position:absolute;right:36%; float:left;">1.Öğr.(&nbsp;<input type="checkbox" style="border-style:none; transform: scale(1.5);" />&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;2.Öğr.(&nbsp;<input type="checkbox" style="border-style:none;  transform: scale(1.5); " />&nbsp;&nbsp;)</div><br /><br />
+            <div style="position:absolute;left:20%; float:left;">Veli Adı Soyadı:<input placeholder="AdSoyad Girin" style="border-style:none;width:150px; " /> </div>
+            <div style="position:absolute;right:32%; float:left;">Veli Cep: <input placeholder="Cep Girin" style="border-style:none;width:150px; " /> </div><br /><br />
+            <hr style="border:1px solid black;position:relative; width:70%; left:35px;" />
+            <div style="position:relative;left:18%; float:left;font-weight:600;">Kayıt Kabul:</div>
+            <div style="position:relative;left:19%; padding-right:32%;"><p>@Model.birincialan</p></div>
+            <div style="position:relative;left:18%; float:left;font-weight:600;">Ayrılma Şartı:</div>
+            <div style="position:relative;left:19%;padding-right:32%;"><p>@Model.ikincialan</p></div>
+
+
+
+            <hr style="position:relative; border:1px solid black; width:335px; left:37px; padding-right:40%;" />
+
+
+            <div style="position:relative;left:19%; float:left;padding-right:32%;">@Model.ucuncualan</div><br /><br />
+            <div style="position:relative;left:70%; float:left;">İmza</div>
+            <hr style="position:relative; border:1px solid black; width:337px; left:40px; bottom:20px; top:90px; padding-right:40%;" />
+            <div style="position:relative;left:19%;top:45px; float:left;padding-right:32%;">@Model.ikincialan</div><br /><br />
+            <div style="position:relative;left:70%;top:55px;">Yönetim Kurulu Adına<br /></div>
+            <div style="position:relative;left:72%; top:60px;">Yurt Müdürü<br /></div>
+        </div>
+        </div>
+</body>
+</html>
+
+ 
+
